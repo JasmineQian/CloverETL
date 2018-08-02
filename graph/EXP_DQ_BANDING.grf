@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 06 18:40:33 CST 2018" guiVersion="4.9.0.M1" id="1520406688560" licenseCode="CLP1DACXIO36442151BY" name="EXP_DQ_BANDING" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="EXP_BANDING" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field locale="zh.CN" name="BANDSTATUS" type="string"/>
+<Field delimiter="," name="BANDDT" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="," name="EXP_ROWNUM" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field auto_filling="metadata_row_count" name="ROWNUM" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="FileAsOutputPortText">
+<Record fieldDelimiter="|" name="FlatFileWriter_FileAsOutputPortText" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field auto_filling="source_name" name="FILENAME" type="string"/>
+<Field auto_filling="source_row_count" name="ROWNUM" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+<GraphParameter name="Daytime_1">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"yyyymmdd");
+}
+]]></attr>
+</GraphParameter>
+<GraphParameter name="Daytime_2">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"YYYYMMdd");
+}
+]]></attr>
+</GraphParameter>
+<GraphParameter name="Day" value="-25"/>
+<GraphParameter name="Daytime">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"YYYYMMdd");
+}
+]]></attr>
+</GraphParameter>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node aggregateKey="OPENID" charset="UTF-8" enabled="disabled" equalNULL="false" guiName="Aggregate" guiX="557" guiY="179" id="AGGREGATE" mapping="$OPENID:=$OPENID;" sorted="false" type="AGGREGATE"/>
+<Node charset="UTF-8" dataPolicy="strict" dbConnection="JDBC0" enabled="disabled" guiName="DBInputTable" guiX="105" guiY="179" id="DBINPUT_TABLE" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT OPENID,FOLLOWFLAG,FOLLOWTIME 
+FROM [dbo].[IMP_DQ_BANDING]
+WHERE  CONVERT(CHAR(8),FOLLOWTIME,112) > DATEADD(DAY,${Day},GETDATE())
+]]></attr>
+</Node>
+<Node charset="UTF-8" dataPolicy="strict" dbConnection="JDBC0" guiName="DBInputTable" guiX="268" guiY="441" id="DBINPUT_TABLE1" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT OPENID,FOLLOWFLAG,FOLLOWTIME 
+FROM [dbo].[IMP_DQ_BANDING]
+WHERE  CONVERT(CHAR(8),FOLLOWTIME,112) > DATEADD(DAY,${Day},GETDATE())
+]]></attr>
+</Node>
+<Node enabled="disabled" guiName="FastSort" guiX="373" guiY="173" id="FAST_SORT" sortKey="OPENID(a)" type="FAST_SORT"/>
+<Node append="true" charset="UTF-8" enabled="disabled" fileURL="${DATAOUT_DIR}/EXP_DQ_BANDING_${Daytime}.txt" guiName="FlatFileWriter" guiX="806" guiY="173" id="FLAT_FILE_WRITER" quotedStrings="true" type="FLAT_FILE_WRITER"/>
+<Node append="true" charset="UTF-8" enabled="disabled" fileURL="${DATAOUT_DIR}/Summary_${Daytime}.txt" guiName="FlatFileWriter" guiX="806" guiY="295" id="FLAT_FILE_WRITER1" makeDirs="true" outputFieldNames="true" quotedStrings="true" type="FLAT_FILE_WRITER"/>
+<Node append="true" charset="UTF-8" fileURL="${DATAOUT_DIR}/EXP_DQ_BANDING_${Daytime}.txt" guiName="FlatFileWriter" guiX="806" guiY="435" id="FLAT_FILE_WRITER2" quotedStrings="true" type="FLAT_FILE_WRITER"/>
+<Edge debugMode="true" fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER:0"/>
+<Edge fromNode="AGGREGATE:1" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 1 (out)" toNode="FLAT_FILE_WRITER1:0"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="FAST_SORT:0"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge9" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER2:0"/>
+<Edge debugMode="true" fromNode="FAST_SORT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" outPort="Port 0 (out)" toNode="AGGREGATE:0"/>
+</Phase>
+</Graph>

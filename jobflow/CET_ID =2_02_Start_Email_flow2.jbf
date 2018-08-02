@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 06 14:08:52 CST 2018" guiVersion="4.9.0.M1" id="1520320831417" licenseCode="CLP1DACXIO36442151BY" name="Jasmine_IMP_FOLLOW" nature="jobflow" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata2" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter=";" name="CLOVER_ETL_TASK" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="CET_ID" size="10" type="integer"/>
+<Field name="CET_CODE" size="30" type="string"/>
+<Field name="CET_LOCALNAME" size="100" type="string"/>
+<Field name="CET_MEMO_1" size="4000" type="string"/>
+<Field name="CET_MEMO_2" size="4000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_3" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_4" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_3" size="1000" type="string"/>
+<Field name="CET_VALID_FLAG" size="10" type="integer"/>
+<Field name="CET_DEV_OWNER" size="100" type="string"/>
+<Field name="CET_SUP_OWNER" size="100" type="string"/>
+<Field name="CET_EMAIL_TO" size="1000" type="string"/>
+<Field name="CET_EMAIL_FROM" size="100" type="string"/>
+<Field name="CET_EMAIL_CC" size="1000" type="string"/>
+<Field name="CET_SERVER_NAME" size="100" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="|" name="Mail" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" recordSize="-1" type="delimited">
+<Field eofAsDelimiter="false" name="Body" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="Subject" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="From" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="To" nullable="true" shift="0" size="0" type="string"/>
+<Field name="CC" type="string"/>
+<Field name="Email_Type" type="string"/>
+<Field name="Attach" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="|" name="Mail_TS" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="Body" type="string"/>
+<Field name="Subject" type="string"/>
+<Field name="From" type="string"/>
+<Field name="To" type="string"/>
+<Field name="CC" type="string"/>
+<Field name="Email_Type" trim="true" type="string"/>
+<Field name="Attach" type="string"/>
+<Field name="TS" type="string"/>
+<Field name="Email_Attach_Path" type="string"/>
+<Field name="Rej_SFTP_Path" type="string"/>
+<Field name="Summary_table" type="string"/>
+<Field name="Summary_excel" type="string"/>
+<Field name="Report_JOBURL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="|" name="message" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="message" type="string"/>
+<Field name="errorMessage" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="./conn/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameter name="CET_ID" value="2"/>
+<GraphParameter name="email_header">
+<attr name="value"><![CDATA[<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acxiom Notice Mail</title>
+    <style type="text/css">
+    body {
+      background-color: #ffffff;
+      -webkit-text-size-adjust: none;
+      padding: 30px 0;
+    }
+    table {
+      display: table;
+      max-width: 800px;
+      background-color: #ffffff;
+      table-layout:fixed;
+    }
+    table td{
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 8px 10px;
+    }
+    .bg-grey{
+      background-color: #f4f4f4;
+    }
+    .report-title{
+      margin-top: 20px;
+      background-color: #f4f4f4;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .report-title td{
+      border-left: 4px solid gray;
+      padding:10px;
+      color: gray;
+    }
+    .report-title .success td{
+      color: green;
+      border-color: green;
+    }
+    .report-title .warning td{
+      color: orange;
+      border-color: orange;
+    }
+    .report-title .error td{
+      color: red;
+      border-color: red;
+    }
+    .report-subtitle{
+      margin-top: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+    .report-subtitle td{
+      padding: 0;
+    }
+    .report-subtitle .status{
+      width: 14px;
+      height: 14px;
+      font-size: 40px;
+      line-height: 14px;
+      text-align: center;
+    }
+    .report-subtitle .success{
+      color: green;
+    }
+    .report-subtitle .warning{
+      color: orange;
+    }
+    .report-subtitle .error{
+      color: red;
+    }
+    .report-item-body{
+      font-size: 13px;
+      margin-top: 5px;
+      border-left: 1px solid #eee;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      color: #666;
+    }
+    .report-item-body td{
+      border-right: 1px solid #eee;
+      text-align: left;
+    }
+    .report-desc{
+      margin-top: 5px;
+      font-size: 12px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      border-left: 1px solid #eee;
+    }
+    .report-desc td{
+      border-right: 1px solid #eee;
+    }
+    .report-desc .success td{
+      border-top: 1px green;
+      background-color: #f4f4f4;
+      color: green;
+    }
+    .report-desc .warning td{
+      border-top: 1px orange;
+      background-color: #f4f4f4;
+      color: orange;
+    }
+    .report-desc .error td{
+      border-top: 1px red;
+      background-color: #f4f4f4;
+      color: red;
+    }
+    .report-desc .content td{
+      border-top: 1px solid #eee;
+      background-color: #FFFFFF;
+    }
+    </style>
+  </head>
+  <body bgcolor="#ffffff">]]></attr>
+</GraphParameter>
+<GraphParameterFile fileURL="conn/parameters.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node charset="UTF-8" dbConnection="JDBC0" guiName="DBinput" guiX="-1036" guiY="9" id="DBINPUT" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT CET_ID,CET_CODE,CET_LOCALNAME,
+CET_MEMO_1,CET_MEMO_2,
+CET_CLOVER_JOB_PARAM_1,CET_CLOVER_JOB_PARAM_2,CET_CLOVER_JOB_PARAM_3,CET_CLOVER_JOB_PARAM_4,
+CET_CLOVER_JOB_URL_1,CET_CLOVER_JOB_URL_2,CET_CLOVER_JOB_URL_3,
+CET_VALID_FLAG,
+CET_DEV_OWNER,CET_SUP_OWNER,
+CET_EMAIL_TO,CET_EMAIL_FROM,CET_EMAIL_CC,
+CET_SERVER_NAME
+FROM [CLOVER_ETL_TASK]
+WHERE CET_ID=${CET_ID}]]></attr>
+</Node>
+<Node attachments="${DATATEMP_DIR}/*.*" guiName="EmailSender" guiX="-346" guiY="-82" id="EMAIL_SENDER" message="From=$From&#10;To=$To&#10;Subject=$Subject&#10;MessageBody=$Body&#10;CC=$CC&#10;" smtpServer="localhost" type="EMAIL_SENDER"/>
+<Node attachments="${DATATEMP_DIR}/*.*" guiName="EmailSender" guiX="-346" guiY="3" id="EMAIL_SENDER1" message="From=$From&#10;To=$To&#10;Subject=$Subject&#10;MessageBody=$Body&#10;CC=$CC&#10;" smtpServer="localhost" type="EMAIL_SENDER"/>
+<Node attachments="${DATATEMP_DIR}/*.*" guiName="EmailSender" guiX="-330" guiY="87" id="EMAIL_SENDER2" message="From=$From&#10;To=$To&#10;Subject=$Subject&#10;MessageBody=$Body&#10;CC=$CC&#10;" smtpServer="localhost" type="EMAIL_SENDER"/>
+<Node guiName="ExecuteJobflow" guiX="-615" guiY="-82" id="EXECUTE_JOBFLOW" jobURL="${JOBFLOW_DIR}/EMAIL_File.jbf" type="EXECUTE_JOBFLOW">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.file_batch_ts = $in.0.TS;
+	$out.1.Rej_SFTP_PATH = $in.0.Rej_SFTP_Path;
+	$out.1.Summary_Excel = $in.0.Summary_excel;
+	$out.1.Email_attach = $in.0.Email_Attach_Path;
+	$out.1.graph_URL = $in.0.Report_JOBURL;
+	$out.1.TableName = $in.0.Summary_table;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Body = $in.0.Body;
+	$out.0.Subject = $in.0.Subject;
+	$out.0.From = $in.0.From;
+	$out.0.To = $in.0.To;
+	$out.0.CC = $in.0.CC;
+	$out.0.Email_Type = $in.0.Email_Type;
+	$out.0.Attach = $in.0.Attach;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteJobflow" guiX="-585" guiY="87" id="EXECUTE_JOBFLOW1" jobURL="${JOBFLOW_DIR}/EMAIL_File.jbf" type="EXECUTE_JOBFLOW">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.file_batch_ts = $in.0.TS;
+	$out.1.Rej_SFTP_PATH = $in.0.Rej_SFTP_Path;
+	$out.1.Summary_Excel = $in.0.Summary_excel;
+	$out.1.Email_attach = $in.0.Email_Attach_Path;
+	$out.1.TableName = $in.0.Summary_table;
+	$out.1.graph_URL = $in.0.Report_JOBURL;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Body = $in.0.Body;
+	$out.0.Subject = $in.0.Subject;
+	$out.0.From = $in.0.From;
+	$out.0.To = $in.0.To;
+	$out.0.CC = $in.0.CC;
+	$out.0.Email_Type = $in.0.Email_Type;
+	$out.0.Attach = $in.0.Attach;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteJobflow" guiX="-822" guiY="9" id="ExecuteJobflow" jobURL="${JOBFLOW_DIR}/CET_ID =2_00_Start_JobFlow.jbf" propagateParameters="false" stopOnFail="false" type="EXECUTE_JOBFLOW">
+<attr name="errorMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+    string s;
+	s="<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"800\" class=\"report-title\">";
+    s=s+"<tbody>";
+    s=s+"    <tr class=\"error\">";
+    s=s+"      <td><div>DATA IMPORT AND DELIEVER NOTICE</div></td>";
+    s=s+"    </tr>";
+    s=s+"  </tbody>";
+    s=s+"</table>";
+	$out.1.Body = getParamValue("email_header") + s +$in.2.message + getParamValue("email_footer");
+	
+	$out.1.Attach = $in.0.CET_CLOVER_JOB_PARAM_1+'/*.*';
+	$out.1.Email_Attach_Path = $in.0.CET_CLOVER_JOB_PARAM_1;
+	$out.1.Rej_SFTP_Path = $in.0.CET_CLOVER_JOB_PARAM_2;
+	$out.1.Summary_table = $in.0.CET_CLOVER_JOB_PARAM_3;
+	$out.1.Summary_excel = $in.0.CET_CLOVER_JOB_PARAM_4;
+	$out.1.Report_JOBURL = $in.0.CET_CLOVER_JOB_URL_3;
+	$out.1.TS = $in.2.timeSta;
+	
+	$out.1.From = $in.0.CET_EMAIL_FROM;
+	$out.1.Subject = $in.0.CET_LOCALNAME;
+	
+	$out.1.To = $in.0.CET_SUP_OWNER;
+	$out.1.CC = $in.0.CET_DEV_OWNER;
+	
+	//$out.1.To = 'zhiyuan.xu@acxiom.com';
+	//$out.1.CC = 'zhiyuan.xu@acxiom.com';
+	
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CET_ID = toString($in.0.CET_ID);
+	$out.2.timeSta = date2str(today(),'yyyyMMddHHmmss');
+	$out.1.FileName_Ts = date2str(today(),'yyyyMMdd');
+	$out.1.CEL_BATCH_TS = date2str(today(),'yyyyMMddHHmmss');
+	return ALL;
+}
+
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	string s;
+	s="<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"800\" class=\"report-title\">";
+    s=s+"<tbody>";
+    s=s+"    <tr class=\"success\">";
+    s=s+"      <td><div>DATA IMPORT AND DELIEVER NOTICE</div></td>";
+    s=s+"    </tr>";
+    s=s+"    <tr class=\"success\">";
+    s=s+"      <td><div>The Email you want is coming</div></td>";
+	//s=s+"      <td><div>"+convert(varchar(50),${$in.0.CET_LOCALNAME+$in.1.runId;})+"</div></td>";
+	s=s+"      <td><div>"+$out.0.Subject+"</div></td>";
+    s=s+"    </tr>";
+    s=s+"  </tbody>";
+    s=s+"</table>";
+	$out.0.Body = getParamValue("email_header") + s +$in.2.message + getParamValue("email_footer");
+	$out.0.Attach = $in.0.CET_CLOVER_JOB_PARAM_1+'/*.*';
+	$out.0.Email_Attach_Path = $in.0.CET_CLOVER_JOB_PARAM_1;
+	$out.0.Rej_SFTP_Path = $in.0.CET_CLOVER_JOB_PARAM_2;
+	$out.0.Summary_table = $in.0.CET_CLOVER_JOB_PARAM_3;
+	$out.0.Summary_excel = $in.0.CET_CLOVER_JOB_PARAM_4;
+	$out.0.Report_JOBURL = $in.0.CET_CLOVER_JOB_URL_3;
+	$out.0.TS = $in.2.timeSta;
+	
+	$out.0.From = $in.0.CET_EMAIL_FROM;
+	$out.0.To = $in.0.CET_EMAIL_TO;
+	$out.0.CC = $in.0.CET_EMAIL_CC;
+	$out.0.Subject = $in.0.CET_LOCALNAME+$in.1.runId;
+	
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="DBINPUT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge19" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="ExecuteJobflow:0"/>
+<Edge debugMode="true" fromNode="EMAIL_SENDER2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (accepted)" toNode="FAIL1:0"/>
+<Edge debugMode="true" fromNode="EXECUTE_JOBFLOW:0" guiBendpoints="" guiRouter="Manhattan" id="Edge15" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="EMAIL_SENDER:0"/>
+<Edge debugMode="true" fromNode="EXECUTE_JOBFLOW:1" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 1 (error)" toNode="EMAIL_SENDER1:0"/>
+<Edge debugMode="true" fromNode="EXECUTE_JOBFLOW1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge14" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="EMAIL_SENDER2:0"/>
+<Edge debugMode="true" fromNode="ExecuteJobflow:0" guiBendpoints="" guiRouter="Manhattan" id="Edge10" inPort="Port 0 (in)" metadata="Metadata4" outPort="Port 0 (out)" toNode="EXECUTE_JOBFLOW:0"/>
+<Edge debugMode="true" fromNode="ExecuteJobflow:1" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="Metadata4" outPort="Port 1 (error)" toNode="EXECUTE_JOBFLOW1:0"/>
+</Phase>
+<Phase number="1">
+<Node guiName="Fail" guiX="-108" guiY="87" id="FAIL1" type="FAIL">
+<attr name="mapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.errorMessage = $in.0.Body;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+</Phase>
+</Graph>

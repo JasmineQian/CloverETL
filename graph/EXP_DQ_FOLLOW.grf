@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 06 18:40:33 CST 2018" guiVersion="4.5.1" id="1520406688560" licenseCode="CLP1DACXIO36442151BY" name="EXP_DQ_BANDING" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="#|#" name="EXP_FOLLOW" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field locale="zh.CN" name="FOLLOWSTATUS" type="string"/>
+<Field name="FOLLOWDT" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameter name="Day" value="-20"/>
+<GraphParameter name="Daytime">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"YYYYMMdd");
+}
+]]></attr>
+</GraphParameter>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node charset="UTF-8" dataPolicy="strict" dbConnection="JDBC0" guiName="DBInputTable" guiX="220" guiY="139" id="DBINPUT_TABLE" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT OPENID,VISIT_FLAG,TIME FROM [DBO].[IMP_DQ_FOLLOW]
+WHERE CONVERT(CHAR(8),TIME,112) > DATEADD(DAY,${Day},GETDATE())
+]]></attr>
+</Node>
+<Node append="true" charset="UTF-8" fileURL="${DATAOUT_DIR}/EXP_DQ_FOLLOW_${Daytime}.txt" guiName="FlatFileWriter" guiX="520" guiY="139" id="FLAT_FILE_WRITER" quotedStrings="false" type="FLAT_FILE_WRITER"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER:0"/>
+</Phase>
+</Graph>

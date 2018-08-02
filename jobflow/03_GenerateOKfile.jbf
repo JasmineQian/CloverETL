@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 06 14:08:52 CST 2018" guiVersion="4.9.0.M1" id="1520320831417" licenseCode="CLP1DACXIO36442151BY" name="Jasmine_IMP_FOLLOW" nature="jobflow" showComponentDetails="true">
+<Global>
+<Metadata id="ExecuteJobflow_RunStatus1">
+<Record fieldDelimiter="\t" name="NAMEROWNUM" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field auto_filling="source_name" name="NAME" type="string"/>
+<Field auto_filling="metadata_row_count" name="ROWNUM" type="long"/>
+</Record>
+</Metadata>
+<Metadata id="ExecuteJobflow_RunStatus2">
+<Record fieldDelimiter="\t" name="NAMEROWNUM_1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field auto_filling="source_name" name="NAME" type="string"/>
+<Field auto_filling="metadata_row_count" name="ROWNUM" type="long"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameter name="CET_ID" value="1"/>
+<GraphParameter name="email_header">
+<attr name="value"><![CDATA[<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acxiom Notice Mail</title>
+    <style type="text/css">
+    body {
+      background-color: #ffffff;
+      -webkit-text-size-adjust: none;
+      padding: 30px 0;
+    }
+    table {
+      display: table;
+      max-width: 800px;
+      background-color: #ffffff;
+      table-layout:fixed;
+    }
+    table td{
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 8px 10px;
+    }
+    .bg-grey{
+      background-color: #f4f4f4;
+    }
+    .report-title{
+      margin-top: 20px;
+      background-color: #f4f4f4;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .report-title td{
+      border-left: 4px solid gray;
+      padding:10px;
+      color: gray;
+    }
+    .report-title .success td{
+      color: green;
+      border-color: green;
+    }
+    .report-title .warning td{
+      color: orange;
+      border-color: orange;
+    }
+    .report-title .error td{
+      color: red;
+      border-color: red;
+    }
+    .report-subtitle{
+      margin-top: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+    .report-subtitle td{
+      padding: 0;
+    }
+    .report-subtitle .status{
+      width: 14px;
+      height: 14px;
+      font-size: 40px;
+      line-height: 14px;
+      text-align: center;
+    }
+    .report-subtitle .success{
+      color: green;
+    }
+    .report-subtitle .warning{
+      color: orange;
+    }
+    .report-subtitle .error{
+      color: red;
+    }
+    .report-item-body{
+      font-size: 13px;
+      margin-top: 5px;
+      border-left: 1px solid #eee;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      color: #666;
+    }
+    .report-item-body td{
+      border-right: 1px solid #eee;
+      text-align: left;
+    }
+    .report-desc{
+      margin-top: 5px;
+      font-size: 12px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      border-left: 1px solid #eee;
+    }
+    .report-desc td{
+      border-right: 1px solid #eee;
+    }
+    .report-desc .success td{
+      border-top: 1px green;
+      background-color: #f4f4f4;
+      color: green;
+    }
+    .report-desc .warning td{
+      border-top: 1px orange;
+      background-color: #f4f4f4;
+      color: orange;
+    }
+    .report-desc .error td{
+      border-top: 1px red;
+      background-color: #f4f4f4;
+      color: red;
+    }
+    .report-desc .content td{
+      border-top: 1px solid #eee;
+      background-color: #FFFFFF;
+    }
+    </style>
+  </head>
+  <body bgcolor="#ffffff">]]></attr>
+</GraphParameter>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node guiName="ExecuteJobflow" guiX="-758" guiY="12" id="ExecuteJobflow" jobURL="${GRAPH_DIR}/EXP_DQ_BANDING.grf" propagateParameters="false" stopOnFail="false" type="EXECUTE_JOBFLOW">
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.NAME = 'EXP_DQ_BANDING'+${Daytime}+'.txt';
+	$out.0.ROWNUM = $in.3.outputPort_0_DBINPUT_TABLE1_totalRecords;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteJobflow" guiX="-758" guiY="152" id="ExecuteJobflow1" jobURL="${GRAPH_DIR}/EXP_DQ_FOLLOW.grf" propagateParameters="false" stopOnFail="false" type="EXECUTE_JOBFLOW">
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.ROWNUM = $in.3.outputPort_0_DBINPUT_TABLE_totalRecords;
+	$out.0.NAME = 'EXP_DQ_FOLLOW.txt'+${Daytime}+'.txt';
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node append="true" charset="UTF-8" fileURL="${DATAOUT_DIR}/Summary_${Daytime}1.ok" guiName="FlatFileWriter" guiX="-166" guiY="104" id="FLAT_FILE_WRITER2" quotedStrings="false" type="FLAT_FILE_WRITER"/>
+<Node guiName="SimpleGather" guiX="-433" guiY="103" id="SIMPLE_GATHER" type="SIMPLE_GATHER"/>
+<Edge debugMode="true" fromNode="ExecuteJobflow:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="ExecuteJobflow_RunStatus2" outPort="Port 0 (out)" toNode="SIMPLE_GATHER:0"/>
+<Edge debugMode="true" fromNode="ExecuteJobflow1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 1 (in)" metadata="ExecuteJobflow_RunStatus1" outPort="Port 0 (out)" toNode="SIMPLE_GATHER:1"/>
+<Edge debugMode="true" fromNode="SIMPLE_GATHER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="ExecuteJobflow_RunStatus1" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER2:0"/>
+</Phase>
+</Graph>

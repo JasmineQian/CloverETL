@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 06 14:08:52 CST 2018" guiVersion="4.5.1" id="1520327691980" licenseCode="CLP1DACXIO36442151BY" name="CHECK_FILENAME" nature="jobflow" showComponentDetails="true">
+<Global>
+<Metadata id="ListFiles_Result">
+<Record fieldDelimiter="|" name="ListFiles_Result" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="URL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="ListFiles_Result1">
+<Record fieldDelimiter="|" name="ListFiles_URL" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="URL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="MoveFiles_Error">
+<Record fieldDelimiter="|" name="MoveFiles_Error" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="result" trim="true" type="boolean"/>
+<Field name="errorMessage" type="string"/>
+<Field name="stackTrace" type="string"/>
+<Field name="sourceURL" type="string"/>
+<Field name="targetURL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="|" name="recordName1" recordDelimiter="\r\n" type="delimited">
+<Field name="name" type="string"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+<GraphParameter name="source_path" value="${sftp}IN/*.ok"/>
+<GraphParameter name="target_path" value="${DATAIN_DIR}/"/>
+<GraphParameter name="Bandfilename" value="Succ_*.*"/>
+<GraphParameter name="Followfilename" value="Chanel_Follow_Status_*.*"/>
+<GraphParameter name="sftp" value="sftp://asl785:8YK%2Cyqfyd5@sftp.acxiom.com.cn:22//IN/ETL_TR_JASMINEQIAN/"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node fileURL="${DATAIN_DIR}/*.*;${DATAOUT_DIR}/*.*;${DATATMP_DIR}/*.*" guiName="DeleteFiles" guiX="68" guiY="42" id="DELETE_FILES" recursive="true" type="DELETE_FILES"/>
+</Phase>
+<Phase number="1">
+<Node append="true" charset="UTF-8" fileURL="${DATATMP_DIR}/Download_csv_01_*.txt" guiName="FlatFileWriter" guiX="712" guiY="236" id="FLAT_FILE_WRITER" quotedStrings="true" type="FLAT_FILE_WRITER"/>
+<Node fileURL="${source_path}" guiName="ListFiles" guiX="75" guiY="190" id="LIST_FILES" type="LIST_FILES"/>
+<Node guiName="MoveFiles" guiX="525" guiY="190" id="MOVE_FILES" makeParentDirs="true" overwrite="always" stopOnFail="true" type="MOVE_FILES">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.targetURL = getParamValue("target_path");
+	$out.0.sourceURL = $in.0.URL;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Reformat" guiX="312" guiY="190" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.URL = replace($in.0.URL,'ok','csv');
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="LIST_FILES:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="ListFiles_Result1" outPort="Port 0 (out)" toNode="REFORMAT:0"/>
+<Edge debugMode="true" fromNode="MOVE_FILES:1" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="MoveFiles_Error" outPort="Port 1 (error)" toNode="FLAT_FILE_WRITER:0"/>
+<Edge debugMode="true" fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 0 (in)" metadata="ListFiles_Result1" outPort="Port 0 (out)" toNode="MOVE_FILES:0"/>
+</Phase>
+<Phase number="2">
+<Node fileURL="${DATATMP_DIR}/Download_ok_02.txt" guiName="FlatFileWriter" guiX="723" guiY="407" id="FLAT_FILE_WRITER2" type="FLAT_FILE_WRITER"/>
+<Node fileURL="${source_path}" guiName="ListFiles" guiX="68" guiY="348" id="LIST_FILES2" type="LIST_FILES"/>
+<Node guiName="MoveFiles" guiX="518" guiY="348" id="MOVE_FILES1" makeParentDirs="true" overwrite="always" stopOnFail="true" type="MOVE_FILES">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.targetURL = getParamValue("target_path");
+	$out.0.sourceURL = $in.0.URL;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Reformat" guiX="305" guiY="348" id="REFORMAT2" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.URL =$in.0.URL;
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="LIST_FILES2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="ListFiles_Result1" outPort="Port 0 (out)" toNode="REFORMAT2:0"/>
+<Edge debugMode="true" fromNode="MOVE_FILES1:1" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="MoveFiles_Error" outPort="Port 1 (error)" toNode="FLAT_FILE_WRITER2:0"/>
+<Edge debugMode="true" fromNode="REFORMAT2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" metadata="ListFiles_Result1" outPort="Port 0 (out)" toNode="MOVE_FILES1:0"/>
+</Phase>
+</Graph>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Wed Mar 07 16:37:00 CST 2018" guiVersion="4.9.0.M1" id="1520559211698" licenseCode="CLP1DACXIO36442151BY" name="INSERT_CLOVER_LIST" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter=";" name="CLOVER_ETL_LIST" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="CEL_BATCH_TS" size="40" type="string"/>
+<Field name="CEL_CES_ID" size="10" type="integer"/>
+<Field name="CEL_RUNID" size="10" type="integer"/>
+<Field name="CEL_JOB_URL" size="600" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CEL_START_TIME" size="23" type="date"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CEL_END_TIME" size="23" type="date"/>
+<Field name="CEL_STATUS" size="600" type="string"/>
+<Field name="CEL_ERR_MSG" type="string"/>
+<Field name="CEL_ERR_COMP" size="600" type="string"/>
+<Field name="CEL_ERR_COMP_TYPE" size="600" type="string"/>
+<Field name="CEL_SC1_TR" size="10" type="integer"/>
+<Field name="CEL_SC1_RR" size="10" type="integer"/>
+<Field name="CEL_TG1_TR" size="10" type="integer"/>
+<Field name="CEL_TG1_RR" size="10" type="integer"/>
+<Field name="CEL_SC2_TR" size="10" type="integer"/>
+<Field name="CEL_SC2_RR" size="10" type="integer"/>
+<Field name="CEL_TG2_TR" size="10" type="integer"/>
+<Field name="CEL_TG2_RR" size="10" type="integer"/>
+<Field name="CEL_SC1_NAME" size="600" type="string"/>
+<Field name="CEL_SC2_NAME" size="600" type="string"/>
+<Field name="CEL_TG1_NAME" size="600" type="string"/>
+<Field name="CEL_TG2_NAME" size="600" type="string"/>
+<Field name="CEL_ATTRIB5" size="10" type="integer"/>
+<Field name="CEL_ATTRIB6" size="10" type="integer"/>
+<Field name="CEL_ATTRIB7" size="600" type="string"/>
+<Field name="CEL_ATTRIB8" size="600" type="string"/>
+<Field name="CEL_ATTRIB9" type="string"/>
+<Field name="CEL_ATTRIB10" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+<GraphParameter name="CEL_JOB_URL"/>
+<GraphParameter name="CEL_RUNID" value="1">
+<SingleType name="int"/>
+</GraphParameter>
+<GraphParameter name="CEL_ATTRIB8"/>
+<GraphParameter name="CEL_ATTRIB6" public="false" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_END_TIME" value="2018-03-12 10:34:25">
+<SingleType format="yyyy-MM-dd HH:mm:ss" name="datetime"/>
+</GraphParameter>
+<GraphParameter name="CEL_START_TIME" value="2018-03-12 10:33:15">
+<SingleType format="yyyy-MM-dd HH:mm:ss" name="datetime"/>
+</GraphParameter>
+<GraphParameter name="CEL_TG1_TR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_ERR_COMP_TYPE"/>
+<GraphParameter name="CEL_SC1_NAME"/>
+<GraphParameter name="CEL_TG2_NAME"/>
+<GraphParameter name="CEL_BATCH_TS"/>
+<GraphParameter name="CEL_SC1_RR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_SC1_TR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_SC2_NAME"/>
+<GraphParameter name="CEL_ERR_COMP"/>
+<GraphParameter name="CEL_STATUS"/>
+<GraphParameter name="CEL_ERR_MSG"/>
+<GraphParameter name="CEL_TG2_TR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_CES_ID" value="1">
+<SingleType name="int"/>
+</GraphParameter>
+<GraphParameter name="CEL_SC2_TR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_SC2_RR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_ATTRIB5" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_TG1_NAME"/>
+<GraphParameter name="CEL_TG1_RR" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_ATTRIB9"/>
+<GraphParameter name="CEL_ATTRIB10"/>
+<GraphParameter name="CEL_TG2_RR" public="false" value="1">
+<ComponentReference referencedComponent="CLOVER_ETL_LIST" referencedProperty="fieldMap"/>
+</GraphParameter>
+<GraphParameter name="CEL_ATTRIB7"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node dbConnection="JDBC0" guiName="DBOutputTable" guiX="455" guiY="111" id="DBOUTPUT_TABLE" type="DB_OUTPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[INSERT INTO [dbo].[CLOVER_ETL_LIST] 
+([CEL_BATCH_TS], [CEL_CES_ID], 
+[CEL_RUNID], [CEL_JOB_URL], [CEL_START_TIME], [CEL_END_TIME], 
+[CEL_STATUS], [CEL_ERR_MSG], [CEL_ERR_COMP], [CEL_ERR_COMP_TYPE], 
+[CEL_SC1_TR], [CEL_SC1_RR], [CEL_TG1_TR], [CEL_TG1_RR], 
+[CEL_SC2_TR], [CEL_SC2_RR], [CEL_TG2_TR], [CEL_TG2_RR], 
+[CEL_SC1_NAME], [CEL_SC2_NAME], [CEL_TG1_NAME], [CEL_TG2_NAME], 
+[CEL_ATTRIB5], [CEL_ATTRIB6], [CEL_ATTRIB7], [CEL_ATTRIB8], [CEL_ATTRIB9], [CEL_ATTRIB10])
+VALUES ($CEL_BATCH_TS, $CEL_CES_ID, 
+$CEL_RUNID, $CEL_JOB_URL, $CEL_START_TIME, $CEL_END_TIME, 
+$CEL_STATUS, $CEL_ERR_MSG, $CEL_ERR_COMP, $CEL_ERR_COMP_TYPE,
+ $CEL_SC1_TR, $CEL_SC1_RR, $CEL_TG1_TR, $CEL_TG1_RR, 
+$CEL_SC2_TR, $CEL_SC2_RR, $CEL_TG2_TR, $CEL_TG2_RR, 
+$CEL_SC1_NAME, $CEL_SC2_NAME, $CEL_TG1_NAME, $CEL_TG2_NAME, 
+$CEL_ATTRIB5, $CEL_ATTRIB6, $CEL_ATTRIB7, $CEL_ATTRIB8, $CEL_ATTRIB9, $CEL_ATTRIB10)]]></attr>
+</Node>
+<Node guiName="GetJobInput" guiX="203" guiY="111" id="GET_JOB_INPUT" type="GET_JOB_INPUT">
+<attr name="mapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.CEL_CES_ID = str2integer(getParamValue("CEL_CES_ID"));
+	$out.0.CEL_RUNID = str2integer(getParamValue("CEL_RUNID"));
+	$out.0.CEL_JOB_URL = getParamValue("CEL_JOB_URL");
+	$out.0.CEL_START_TIME = str2date(getParamValue("CEL_START_TIME"),'yyyy-MM-dd HH:mm:ss');
+	$out.0.CEL_END_TIME = str2date(getParamValue("CEL_END_TIME"),'yyyy-MM-dd HH:mm:ss');
+	$out.0.CEL_STATUS = getParamValue("CEL_STATUS");
+	$out.0.CEL_ERR_MSG = getParamValue("CEL_ERR_MSG");
+	$out.0.CEL_ERR_COMP = getParamValue("CEL_ERR_COMP");
+	$out.0.CEL_ERR_COMP_TYPE = getParamValue("CEL_ERR_COMP_TYPE");
+	$out.0.CEL_SC1_TR = str2integer(getParamValue("CEL_SC1_TR"));
+	$out.0.CEL_SC1_RR = str2integer(getParamValue("CEL_SC1_RR"));
+	$out.0.CEL_TG1_TR = str2integer(getParamValue("CEL_TG1_TR"));
+	$out.0.CEL_TG1_RR = str2integer(getParamValue("CEL_TG1_RR"));
+	$out.0.CEL_SC2_TR = str2integer(getParamValue("CEL_SC2_TR"));
+	$out.0.CEL_SC2_RR = str2integer(getParamValue("CEL_SC2_RR"));
+	$out.0.CEL_TG2_TR = str2integer(getParamValue("CEL_TG2_TR"));
+	$out.0.CEL_TG2_RR = str2integer(getParamValue("CEL_TG2_RR"));
+	$out.0.CEL_ATTRIB5 = str2integer(getParamValue("CEL_ATTRIB5"));
+	$out.0.CEL_ATTRIB6 = str2integer(getParamValue("CEL_ATTRIB6"));
+	$out.0.CEL_ATTRIB7 = getParamValue("CEL_ATTRIB7");
+	$out.0.CEL_ATTRIB8 = getParamValue("CEL_ATTRIB8");
+	$out.0.CEL_ATTRIB9 = getParamValue("CEL_ATTRIB9");
+	$out.0.CEL_ATTRIB10 = getParamValue("CEL_ATTRIB10");
+	$out.0.CEL_BATCH_TS = getParamValue("CEL_BATCH_TS");
+	$out.0.CEL_SC1_NAME = getParamValue("CEL_SC1_NAME");
+	$out.0.CEL_SC2_NAME = getParamValue("CEL_SC2_NAME");
+	$out.0.CEL_TG1_NAME = getParamValue("CEL_TG1_NAME");
+	$out.0.CEL_TG2_NAME = getParamValue("CEL_TG2_NAME");
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="GET_JOB_INPUT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="DBOUTPUT_TABLE:0"/>
+</Phase>
+</Graph>

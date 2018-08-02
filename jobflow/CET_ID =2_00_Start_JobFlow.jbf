@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Thu Mar 01 16:23:06 CST 2018" guiVersion="4.9.0.M1" id="1520315242912" licenseCode="CLP1DACXIO36442151BY" name="START_IMP_FOLLOW" nature="jobflow" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter=";" name="CLOVER_ETL" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="CET_ID" size="10" type="integer"/>
+<Field name="CET_CODE" size="30" type="string"/>
+<Field name="CET_LOCALNAME" size="100" type="string"/>
+<Field name="CET_MEMO_1" size="4000" type="string"/>
+<Field name="CET_MEMO_2" size="4000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_3" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_4" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_3" size="1000" type="string"/>
+<Field name="CET_VALID_FLAG" size="10" type="integer"/>
+<Field name="CET_DEV_OWNER" size="100" type="string"/>
+<Field name="CET_SUP_OWNER" size="100" type="string"/>
+<Field name="CET_EMAIL_TO" size="1000" type="string"/>
+<Field name="CET_EMAIL_FROM" size="100" type="string"/>
+<Field name="CET_EMAIL_CC" size="1000" type="string"/>
+<Field name="CET_SERVER_NAME" size="100" type="string"/>
+<Field name="CES_ID" size="10" type="integer"/>
+<Field name="CES_CET_ID" size="10" type="integer"/>
+<Field name="CES_ORDER_NUM" size="10" type="integer"/>
+<Field name="CES_CODE" size="30" type="string"/>
+<Field name="CES_LOCALNAME" size="100" type="string"/>
+<Field name="CES_MEMO" size="4000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_1" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_2" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_3" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_4" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_URL_1" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_URL_2" size="1000" type="string"/>
+<Field name="CES_VALID_FLAG" size="10" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6">
+<Record fieldDelimiter=";" name="CLOVER_ETL_1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="CET_ID" size="10" type="integer"/>
+<Field name="CET_CODE" size="30" type="string"/>
+<Field name="CET_LOCALNAME" size="100" type="string"/>
+<Field name="CET_MEMO_1" size="4000" type="string"/>
+<Field name="CET_MEMO_2" size="4000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_3" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_PARAM_4" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_1" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_2" size="1000" type="string"/>
+<Field name="CET_CLOVER_JOB_URL_3" size="1000" type="string"/>
+<Field name="CET_VALID_FLAG" size="10" type="integer"/>
+<Field name="CET_DEV_OWNER" size="100" type="string"/>
+<Field name="CET_SUP_OWNER" size="100" type="string"/>
+<Field name="CET_EMAIL_TO" size="1000" type="string"/>
+<Field name="CET_EMAIL_FROM" size="100" type="string"/>
+<Field name="CET_EMAIL_CC" size="1000" type="string"/>
+<Field name="CET_SERVER_NAME" size="100" type="string"/>
+<Field name="CES_ID" size="10" type="integer"/>
+<Field name="CES_CET_ID" size="10" type="integer"/>
+<Field name="CES_ORDER_NUM" size="10" type="integer"/>
+<Field name="CES_CODE" size="30" type="string"/>
+<Field name="CES_LOCALNAME" size="100" type="string"/>
+<Field name="CES_MEMO" size="4000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_1" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_2" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_3" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_PARAM_4" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_URL_1" size="1000" type="string"/>
+<Field name="CES_CLOVER_JOB_URL_2" size="1000" type="string"/>
+<Field name="CES_VALID_FLAG" size="10" type="integer"/>
+<Field name="checkFollowControl" type="boolean"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter=";" name="CLOVER_ETL_LIST" recordDelimiter="\n" type="delimited">
+<Field name="CEL_ID" size="10" type="integer"/>
+<Field name="CEL_BATCH_TS" size="40" type="string"/>
+<Field name="CEL_CES_ID" size="10" type="integer"/>
+<Field name="CEL_RUNID" size="10" type="integer"/>
+<Field name="CEL_JOB_URL" size="600" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CEL_START_TIME" size="23" type="date"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CEL_END_TIME" size="23" type="date"/>
+<Field name="CEL_STATUS" size="600" type="string"/>
+<Field name="CEL_ERR_MSG" type="string"/>
+<Field name="CEL_ERR_COMP" size="600" type="string"/>
+<Field name="CEL_ERR_COMP_TYPE" size="600" type="string"/>
+<Field name="CEL_SC1_TR" size="10" type="integer"/>
+<Field name="CEL_SC1_RR" size="10" type="integer"/>
+<Field name="CEL_TG1_TR" size="10" type="integer"/>
+<Field name="CEL_TG1_RR" size="10" type="integer"/>
+<Field name="CEL_SC2_TR" size="10" type="integer"/>
+<Field name="CEL_SC2_RR" size="10" type="integer"/>
+<Field name="CEL_TG2_TR" size="10" type="integer"/>
+<Field name="CEL_TG2_RR" size="10" type="integer"/>
+<Field name="CEL_SC1_NAME" size="600" type="string"/>
+<Field name="CEL_SC2_NAME" size="600" type="string"/>
+<Field name="CEL_TG1_NAME" size="600" type="string"/>
+<Field name="CEL_TG2_NAME" size="600" type="string"/>
+<Field name="CEL_ATTRIB5" size="10" type="integer"/>
+<Field name="CEL_ATTRIB6" size="10" type="integer"/>
+<Field name="CEL_ATTRIB7" size="600" type="string"/>
+<Field name="CEL_ATTRIB8" size="600" type="string"/>
+<Field name="CEL_ATTRIB9" type="string"/>
+<Field name="CEL_ATTRIB10" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="|" name="Mail" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" recordSize="-1" type="delimited">
+<Field eofAsDelimiter="false" name="Body" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="Subject" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="From" nullable="true" shift="0" size="0" type="string"/>
+<Field eofAsDelimiter="false" name="To" nullable="true" shift="0" size="0" type="string"/>
+<Field name="CC" type="string"/>
+<Field name="Email_Type" type="string"/>
+<Field name="Attach" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="|" name="Mail_TS" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="Body" type="string"/>
+<Field name="Subject" type="string"/>
+<Field name="From" type="string"/>
+<Field name="To" type="string"/>
+<Field name="CC" type="string"/>
+<Field name="Email_Type" trim="true" type="string"/>
+<Field name="Attach" type="string"/>
+<Field name="TS" type="string"/>
+<Field name="Email_Attach_Path" type="string"/>
+<Field name="Rej_SFTP_Path" type="string"/>
+<Field name="Summary_table" type="string"/>
+<Field name="Summary_excel" type="string"/>
+<Field name="Report_JOBURL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="|" name="message" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="message" type="string"/>
+<Field name="errorMessage" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5">
+<Record fieldDelimiter="|" name="recordName1" recordDelimiter="\r\n" type="delimited">
+<Field name="checkFollowControl" type="boolean"/>
+</Record>
+</Metadata>
+<Connection dbConfig="./conn/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameter name="CET_ID" value="2"/>
+<GraphParameter name="email_header">
+<attr name="value"><![CDATA[<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acxiom Notice Mail</title>
+    <style type="text/css">
+    body {
+      background-color: #ffffff;
+      -webkit-text-size-adjust: none;
+      padding: 30px 0;
+    }
+    table {
+      display: table;
+      max-width: 800px;
+      background-color: #ffffff;
+      table-layout:fixed;
+    }
+    table td{
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 8px 10px;
+    }
+    .bg-grey{
+      background-color: #f4f4f4;
+    }
+    .report-title{
+      margin-top: 20px;
+      background-color: #f4f4f4;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .report-title td{
+      border-left: 4px solid gray;
+      padding:10px;
+      color: gray;
+    }
+    .report-title .success td{
+      color: green;
+      border-color: green;
+    }
+    .report-title .warning td{
+      color: orange;
+      border-color: orange;
+    }
+    .report-title .error td{
+      color: red;
+      border-color: red;
+    }
+    .report-subtitle{
+      margin-top: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+    .report-subtitle td{
+      padding: 0;
+    }
+    .report-subtitle .status{
+      width: 14px;
+      height: 14px;
+      font-size: 40px;
+      line-height: 14px;
+      text-align: center;
+    }
+    .report-subtitle .success{
+      color: green;
+    }
+    .report-subtitle .warning{
+      color: orange;
+    }
+    .report-subtitle .error{
+      color: red;
+    }
+    .report-item-body{
+      font-size: 13px;
+      margin-top: 5px;
+      border-left: 1px solid #eee;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      color: #666;
+    }
+    .report-item-body td{
+      border-right: 1px solid #eee;
+      text-align: left;
+    }
+    .report-desc{
+      margin-top: 5px;
+      font-size: 12px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      border-left: 1px solid #eee;
+    }
+    .report-desc td{
+      border-right: 1px solid #eee;
+    }
+    .report-desc .success td{
+      border-top: 1px green;
+      background-color: #f4f4f4;
+      color: green;
+    }
+    .report-desc .warning td{
+      border-top: 1px orange;
+      background-color: #f4f4f4;
+      color: orange;
+    }
+    .report-desc .error td{
+      border-top: 1px red;
+      background-color: #f4f4f4;
+      color: red;
+    }
+    .report-desc .content td{
+      border-top: 1px solid #eee;
+      background-color: #FFFFFF;
+    }
+    </style>
+  </head>
+  <body bgcolor="#ffffff">]]></attr>
+</GraphParameter>
+<GraphParameter name="email_footer">
+<attr name="value"><![CDATA[  </body>
+</html>]]></attr>
+</GraphParameter>
+<GraphParameter name="FileName_Ts" value="20170728"/>
+<GraphParameter name="CEL_BATCH_TS" value="`date2str(today(),&quot;yyyyMMddHHmmss&quot; )`"/>
+<GraphParameterFile fileURL="conn/parameters.prm"/>
+</GraphParameters>
+<Dictionary>
+<Entry contentType="RMARRIAGESTATUS" input="true" name="timeSta" output="true" type="string"/>
+<Entry contentType="RMARRIAGESTATUS" input="false" name="message" output="true" type="string"/>
+<Entry input="true" name="checkFollowControl" output="true" type="boolean"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node dbConnection="JDBC0" guiName="DBExecute" guiX="15" guiY="100" id="DBEXECUTE" type="DB_EXECUTE">
+<attr name="sqlQuery"><![CDATA[TRUNCATE TABLE [dbo].[IMP_STG_FOLLOW]
+TRUNCATE TABLE [dbo].[IMP_STG_BANDING]]]></attr>
+</Node>
+</Phase>
+<Phase number="1">
+<Node charset="UTF-8" dbConnection="JDBC0" guiName="CET_ID_2" guiX="15" guiY="224" id="CET_ID_2" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT CET_ID,CET_CODE,CET_LOCALNAME,CET_MEMO_1,CET_MEMO_2,
+CET_CLOVER_JOB_PARAM_1,CET_CLOVER_JOB_PARAM_2,CET_CLOVER_JOB_PARAM_3,CET_CLOVER_JOB_PARAM_4,
+CET_CLOVER_JOB_URL_1,CET_CLOVER_JOB_URL_2,CET_CLOVER_JOB_URL_3,
+CET_VALID_FLAG,CET_DEV_OWNER,CET_SUP_OWNER,
+CET_EMAIL_TO,CET_EMAIL_FROM,CET_EMAIL_CC,
+CET_SERVER_NAME,[CES_ID],[CES_CET_ID],[CES_ORDER_NUM]
+,[CES_CODE],[CES_LOCALNAME],[CES_MEMO]
+,[CES_CLOVER_JOB_PARAM_1],[CES_CLOVER_JOB_PARAM_2],[CES_CLOVER_JOB_PARAM_3],[CES_CLOVER_JOB_PARAM_4]
+,[CES_CLOVER_JOB_URL_1],[CES_CLOVER_JOB_URL_2],[CES_VALID_FLAG]
+FROM [CLOVER_ETL_TASK]
+JOIN [CLOVER_ETL_STEP] ON  CET_ID = CES_CET_ID
+WHERE CET_ID=${CET_ID}]]></attr>
+</Node>
+<Node guiName="Partition" guiX="211" guiY="224" id="PARTITION" type="PARTITION">
+<attr name="partitionSource"><![CDATA[//#CTL2
+// This transformation partitions input records into multiple output ports.
+
+// Returns the number of the output port where the input record will be sent.
+function integer getOutputPort() {
+	
+if ($in.0.CES_ORDER_NUM == 1) { return 0; } //do
+else if ($in.0.CES_ORDER_NUM == 2) { return 1; } 
+else if ($in.0.CES_ORDER_NUM == 3) { return 2; }  //d
+else { return 3;}
+
+}
+
+// Called during component initialization, partitionCount is the number of output ports.
+// function void init(integer partitionCount) {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources.
+// All resources allocated within this method should be released by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if getOutputPort() throws an exception.
+// function integer getOutputPortOnError(string errorMessage, string stackTrace) {
+// }
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="CET_ID_2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="PARTITION:0"/>
+<Edge debugMode="true" fromNode="PARTITION:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="DAO_RU_BANG_DING_WEN_JIAN:0"/>
+<Edge debugMode="true" fromNode="PARTITION:1" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 1 (out)" toNode="CHECK_FOLLOW_CONTROL:0"/>
+<Edge debugMode="true" fromNode="PARTITION:2" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 2 (out)" toNode="DAO_RU_BANDING_WEN_JIAN_DAO_STG_BANDING_BIAO:0"/>
+<Edge fromNode="PARTITION:3" guiBendpoints="" guiRouter="Manhattan" id="Edge29" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 3 (out)" toNode="TRASH:0"/>
+</Phase>
+<Phase number="2">
+<Node guiName="导入绑定文件" guiX="418" guiY="22" id="DAO_RU_BANG_DING_WEN_JIAN" jobURL="./graph/IMP_BANDING.grf" propagateParameters="false" stopOnFail="false" type="EXECUTE_JOBFLOW">
+<attr name="errorMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+ string ss;
+	long duration = $in.1.duration;
+	if(duration>1000)
+		ss = duration/1000+"s";
+	else
+		ss = duration+"ms";
+	$out.0.CEL_BATCH_TS = getParamValue("CEL_BATCH_TS");		
+	$out.0.CEL_CES_ID = $in.0.CES_ID;
+	$out.0.CEL_RUNID = long2integer($in.1.runId);
+	$out.0.CEL_JOB_URL = $in.1.originalJobURL;
+	$out.0.CEL_START_TIME = $in.1.startTime;
+	$out.0.CEL_END_TIME = $in.1.endTime;
+	$out.0.CEL_STATUS = $in.1.status;
+	$out.0.CEL_ERR_MSG = $in.0.CES_CLOVER_JOB_PARAM_3;// table name
+	$out.0.CEL_ERR_COMP_TYPE = $in.1.errComponentType;
+	$out.0.CEL_ATTRIB7 = $in.0.CES_CLOVER_JOB_PARAM_1;//flat file url
+	$out.0.CEL_ATTRIB10 = $in.0.CES_LOCALNAME;//step name
+    $out.0.CEL_ATTRIB9 = $in.0.CES_CLOVER_JOB_URL_1;
+	$out.0.CEL_ATTRIB8 = ss;//
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="803" guiY="22" id="EXECUTE_GRAPH" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="803" guiY="125" id="EXECUTE_GRAPH7" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="DAO_RU_BANG_DING_WEN_JIAN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXECUTE_GRAPH:0"/>
+<Edge debugMode="true" fromNode="DAO_RU_BANG_DING_WEN_JIAN:1" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 1 (error)" toNode="EXECUTE_GRAPH7:0"/>
+</Phase>
+<Phase number="3">
+<Node guiName="checkFollowControl" guiX="438" guiY="260" id="CHECK_FOLLOW_CONTROL" jobURL="./jobflow/02_TestCheckFollowOKfile.jbf" type="EXECUTE_JOBFLOW">
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.CET_ID = $in.0.CET_ID;
+	$out.0.CET_CODE = $in.0.CET_CODE;
+	$out.0.CET_LOCALNAME = $in.0.CET_LOCALNAME;
+	$out.0.CET_MEMO_1 = $in.0.CET_MEMO_1;
+	$out.0.CET_MEMO_2 = $in.0.CET_MEMO_2;
+	$out.0.CET_CLOVER_JOB_PARAM_1 = $in.0.CET_CLOVER_JOB_PARAM_1;
+	$out.0.CET_CLOVER_JOB_PARAM_2 = $in.0.CET_CLOVER_JOB_PARAM_2;
+	$out.0.CET_CLOVER_JOB_PARAM_3 = $in.0.CET_CLOVER_JOB_PARAM_3;
+	$out.0.CET_CLOVER_JOB_PARAM_4 = $in.0.CET_CLOVER_JOB_PARAM_4;
+	$out.0.CET_CLOVER_JOB_URL_1 = $in.0.CET_CLOVER_JOB_URL_1;
+	$out.0.CET_CLOVER_JOB_URL_2 = $in.0.CET_CLOVER_JOB_URL_2;
+	$out.0.CET_CLOVER_JOB_URL_3 = $in.0.CET_CLOVER_JOB_URL_3;
+	$out.0.CET_VALID_FLAG = $in.0.CET_VALID_FLAG;
+	$out.0.CET_DEV_OWNER = $in.0.CET_DEV_OWNER;
+	$out.0.CET_SUP_OWNER = $in.0.CET_SUP_OWNER;
+	$out.0.CET_EMAIL_TO = $in.0.CET_EMAIL_TO;
+	$out.0.CET_EMAIL_FROM = $in.0.CET_EMAIL_FROM;
+	$out.0.CET_EMAIL_CC = $in.0.CET_EMAIL_CC;
+	$out.0.CET_SERVER_NAME = $in.0.CET_SERVER_NAME;
+	$out.0.CES_ID = $in.0.CES_ID;
+	$out.0.CES_CET_ID = $in.0.CES_CET_ID;
+	$out.0.CES_ORDER_NUM = $in.0.CES_ORDER_NUM;
+	$out.0.CES_CODE = $in.0.CES_CODE;
+	$out.0.CES_LOCALNAME = $in.0.CES_LOCALNAME;
+	$out.0.CES_MEMO = $in.0.CES_MEMO;
+	$out.0.CES_CLOVER_JOB_PARAM_1 = $in.0.CES_CLOVER_JOB_PARAM_1;
+	$out.0.CES_CLOVER_JOB_PARAM_2 = $in.0.CES_CLOVER_JOB_PARAM_2;
+	$out.0.CES_CLOVER_JOB_PARAM_3 = $in.0.CES_CLOVER_JOB_PARAM_3;
+	$out.0.CES_CLOVER_JOB_PARAM_4 = $in.0.CES_CLOVER_JOB_PARAM_4;
+	$out.0.CES_CLOVER_JOB_URL_1 = $in.0.CES_CLOVER_JOB_URL_1;
+	$out.0.CES_CLOVER_JOB_URL_2 = $in.0.CES_CLOVER_JOB_URL_2;
+	$out.0.CES_VALID_FLAG = $in.0.CES_VALID_FLAG;
+	$out.0.checkFollowControl = $in.2.checkFollowControl;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="DAO_RUFOLLOW_WEN_JIAN_DAO_STG_FOLLOW_BIAO1" guiX="803" guiY="243" id="DAO_RUFOLLOW_WEN_JIAN_DAO_STG_FOLLOW_BIAO1" jobURL="./graph/IMP_FOLLOW.grf" type="EXECUTE_JOBFLOW">
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+ string ss;
+	long duration = $in.1.duration;
+	if(duration>1000)
+		ss = duration/1000+"s";
+	else
+		ss = duration+"ms";
+	$out.0.CEL_BATCH_TS = getParamValue("CEL_BATCH_TS");		
+	$out.0.CEL_CES_ID = $in.0.CES_ID;
+	$out.0.CEL_RUNID = long2integer($in.1.runId);
+	$out.0.CEL_JOB_URL = $in.1.originalJobURL;
+	$out.0.CEL_START_TIME = $in.1.startTime;
+	$out.0.CEL_END_TIME = $in.1.endTime;
+	$out.0.CEL_STATUS = $in.1.status;
+	$out.0.CEL_ERR_MSG = $in.0.CES_CLOVER_JOB_PARAM_3;// table name
+	$out.0.CEL_ERR_COMP_TYPE = $in.1.errComponentType;
+	$out.0.CEL_ATTRIB7 = $in.0.CES_CLOVER_JOB_PARAM_1;//flat file url
+	$out.0.CEL_ATTRIB10 = $in.0.CES_LOCALNAME;//step name
+    $out.0.CEL_ATTRIB9 = $in.0.CES_CLOVER_JOB_URL_1;
+	$out.0.CEL_ATTRIB8 = ss;//
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="1067" guiY="100" id="EXECUTE_GRAPH1" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="990" guiY="364" id="EXECUTE_GRAPH16" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="1078" guiY="222" id="EXECUTE_GRAPH8" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Filter" guiX="620" guiY="191" id="FILTER" type="EXT_FILTER">
+<attr name="filterExpression"><![CDATA[//#CTL2
+$in.0.checkFollowControl == true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="CHECK_FOLLOW_CONTROL:0" guiBendpoints="" guiRouter="Manhattan" id="Edge26" inPort="Port 0 (in)" metadata="Metadata6" outPort="Port 0 (out)" toNode="FILTER:0"/>
+<Edge fromNode="CHECK_FOLLOW_CONTROL:1" guiBendpoints="" guiRouter="Manhattan" id="Edge18" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 1 (error)" toNode="EXECUTE_GRAPH16:0"/>
+<Edge debugMode="true" fromNode="DAO_RUFOLLOW_WEN_JIAN_DAO_STG_FOLLOW_BIAO1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge27" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXECUTE_GRAPH1:0"/>
+<Edge debugMode="true" fromNode="DAO_RUFOLLOW_WEN_JIAN_DAO_STG_FOLLOW_BIAO1:1" guiBendpoints="" guiRouter="Manhattan" id="Edge28" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 1 (error)" toNode="EXECUTE_GRAPH8:0"/>
+<Edge debugMode="true" fromNode="FILTER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" outPort="Port 0 (accepted)" toNode="DAO_RUFOLLOW_WEN_JIAN_DAO_STG_FOLLOW_BIAO1:0"/>
+</Phase>
+<Phase number="4">
+<Node guiName="导入BANDING文件到STG_BANDING表" guiX="412" guiY="415" id="DAO_RU_BANDING_WEN_JIAN_DAO_STG_BANDING_BIAO" jobURL="./jobflow/03_GenerateOKfile.jbf" type="EXECUTE_JOBFLOW">
+<attr name="outputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+ string ss;
+	long duration = $in.1.duration;
+	if(duration>1000)
+		ss = duration/1000+"s";
+	else
+		ss = duration+"ms";
+	$out.0.CEL_BATCH_TS = getParamValue("CEL_BATCH_TS");		
+	$out.0.CEL_CES_ID = $in.0.CES_ID;
+	$out.0.CEL_RUNID = long2integer($in.1.runId);
+	$out.0.CEL_JOB_URL = $in.1.originalJobURL;
+	$out.0.CEL_START_TIME = $in.1.startTime;
+	$out.0.CEL_END_TIME = $in.1.endTime;
+	$out.0.CEL_STATUS = $in.1.status;
+	$out.0.CEL_ERR_MSG = $in.0.CES_CLOVER_JOB_PARAM_3;// table name
+	$out.0.CEL_ERR_COMP_TYPE = $in.1.errComponentType;
+	$out.0.CEL_ATTRIB7 = $in.0.CES_CLOVER_JOB_PARAM_1;//flat file url
+	$out.0.CEL_ATTRIB10 = $in.0.CES_LOCALNAME;//step name
+    $out.0.CEL_ATTRIB9 = $in.0.CES_CLOVER_JOB_URL_1;
+	$out.0.CEL_ATTRIB8 = ss;//
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="777" guiY="408" id="EXECUTE_GRAPH2" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExecuteGraph" guiX="771" guiY="530" id="EXECUTE_GRAPH9" jobURL="./graph/LOG_CLOVER_LIST.grf" type="EXECUTE_GRAPH">
+<attr name="inputMapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.1.CEL_BATCH_TS = $in.0.CEL_BATCH_TS;
+	$out.1.CEL_CES_ID = toString(nvl($in.0.CEL_CES_ID,0));
+	$out.1.CEL_RUNID = toString(nvl($in.0.CEL_RUNID,0));
+	$out.1.CEL_JOB_URL = $in.0.CEL_JOB_URL;
+	if($in.0.CEL_START_TIME != null){
+		$out.1.CEL_START_TIME = date2str($in.0.CEL_START_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	if($in.0.CEL_END_TIME != null){
+		$out.1.CEL_END_TIME = date2str($in.0.CEL_END_TIME,'yyyy-MM-dd HH:mm:ss');
+	}
+	$out.1.CEL_STATUS = $in.0.CEL_STATUS;
+	$out.1.CEL_ERR_MSG = $in.0.CEL_ERR_MSG;
+	$out.1.CEL_ERR_COMP = $in.0.CEL_ERR_COMP;
+	$out.1.CEL_ERR_COMP_TYPE = $in.0.CEL_ERR_COMP_TYPE;
+	$out.1.CEL_SC1_TR = toString(nvl($in.0.CEL_SC1_TR,0));
+	$out.1.CEL_SC1_RR = toString(nvl($in.0.CEL_SC1_RR,0));
+	$out.1.CEL_TG1_TR = toString(nvl($in.0.CEL_TG1_TR,0));
+	$out.1.CEL_TG1_RR = toString(nvl($in.0.CEL_TG1_RR,0));
+	$out.1.CEL_SC2_TR = toString(nvl($in.0.CEL_SC2_TR,0));
+	$out.1.CEL_SC2_RR = toString(nvl($in.0.CEL_SC2_RR,0));
+	$out.1.CEL_TG2_TR = toString(nvl($in.0.CEL_TG2_TR,0));
+	$out.1.CEL_TG2_RR = toString(nvl($in.0.CEL_TG2_RR,0));
+	$out.1.CEL_SC1_NAME = $in.0.CEL_SC1_NAME;
+	$out.1.CEL_SC2_NAME = $in.0.CEL_SC2_NAME;
+	$out.1.CEL_TG1_NAME = $in.0.CEL_TG1_NAME;
+	$out.1.CEL_TG2_NAME = $in.0.CEL_TG2_NAME;
+	$out.1.CEL_ATTRIB5 = toString(nvl($in.0.CEL_ATTRIB5,0));
+	$out.1.CEL_ATTRIB6 = toString(nvl($in.0.CEL_ATTRIB6,0));
+	$out.1.CEL_ATTRIB7 = $in.0.CEL_ATTRIB7;
+	$out.1.CEL_ATTRIB8 = $in.0.CEL_ATTRIB8;
+	$out.1.CEL_ATTRIB9 = $in.0.CEL_ATTRIB9;
+	$out.1.CEL_ATTRIB10 = $in.0.CEL_ATTRIB10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="DAO_RU_BANDING_WEN_JIAN_DAO_STG_BANDING_BIAO:0" guiBendpoints="" guiRouter="Manhattan" id="Edge19" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXECUTE_GRAPH2:0"/>
+<Edge debugMode="true" fromNode="DAO_RU_BANDING_WEN_JIAN_DAO_STG_BANDING_BIAO:1" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 1 (error)" toNode="EXECUTE_GRAPH9:0"/>
+</Phase>
+<Phase number="99">
+<Node guiName="Trash" guiX="270" guiY="364" id="TRASH" type="TRASH"/>
+</Phase>
+</Graph>

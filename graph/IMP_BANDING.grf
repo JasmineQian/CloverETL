@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Thu Mar 01 16:23:06 CST 2018" guiVersion="4.9.0.M1" id="1520239778131" licenseCode="CLP1DACXIO36442151BY" name="IMP_BANDING" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata3">
+<Record fieldDelimiter=";" name="IMP_DQ_BANDING" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="USERID" size="10" trim="true" type="integer"/>
+<Field name="NAME" size="100" type="string"/>
+<Field name="MOBILE" size="30" type="string"/>
+<Field name="EMAIL" size="500" type="string"/>
+<Field name="GENDER" size="20" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="BIRTH" size="10" type="string"/>
+<Field name="PROVINCENAME" size="20" type="string"/>
+<Field name="CITYNAME" size="20" type="string"/>
+<Field name="VIP" size="20" type="string"/>
+<Field name="CUSTOMERTYPE" size="20" type="string"/>
+<Field name="OPENID" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field name="FOLLOWFLAG" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="FOLLOWTIME" size="23" trim="true" type="date"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CERTIFYTIME" size="23" trim="true" type="date"/>
+<Field name="STORECODE" size="50" type="string"/>
+<Field name="STORENAME" size="200" type="string"/>
+<Field name="FILENAME" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CREATEDT" size="23" trim="true" type="date"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter=";" name="IMP_STG_BANDING" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="USERID" size="10" trim="true" type="integer"/>
+<Field name="NAME" size="100" type="string"/>
+<Field name="MOBILE" size="30" type="string"/>
+<Field name="EMAIL" size="1" type="string"/>
+<Field name="GENDER" size="20" type="string"/>
+<Field name="BIRTH" size="10" type="string"/>
+<Field name="PROVINCENAME" size="20" type="string"/>
+<Field name="CITYNAME" size="20" type="string"/>
+<Field name="VIP" size="20" type="string"/>
+<Field name="CUSTOMERTYPE" size="20" type="string"/>
+<Field name="OPENID" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field name="FOLLOWFLAG" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="FOLLOWTIME" size="23" trim="true" type="date"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CERTIFYTIME" size="23" trim="true" type="date"/>
+<Field name="STORECODE" size="50" type="string"/>
+<Field name="STORENAME" size="200" type="string"/>
+<Field name="FILENAME" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CREATEDT" size="23" trim="true" type="date"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter=";" name="IMP_STG_BANDING_1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="USERID" size="10" type="integer"/>
+<Field name="NAME" size="100" type="string"/>
+<Field name="MOBILE" size="30" type="string"/>
+<Field name="EMAIL" size="500" type="string"/>
+<Field name="GENDER" size="20" type="string"/>
+<Field name="BIRTH" size="200" type="string"/>
+<Field name="PROVINCENAME" size="20" type="string"/>
+<Field name="CITYNAME" size="20" type="string"/>
+<Field name="VIP" size="20" type="string"/>
+<Field name="CUSTOMERTYPE" size="20" type="string"/>
+<Field name="OPENID" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field name="FOLLOWFLAG" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="FOLLOWTIME" size="23" type="date"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CERTIFYTIME" size="23" type="date"/>
+<Field name="STORECODE" size="50" type="string"/>
+<Field name="STORENAME" size="200" type="string"/>
+<Field name="FILENAME" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CREATEDT" size="23" type="date"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="," label="Succ_Binding_201802260000.csv" name="Succ_Binding_201802260000_csv" previewAttachment="${DATAIN_DIR}/Succ_Binding_201802260000.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="用户编号" name="USERID" type="integer"/>
+<Field label="姓名" name="NAME" type="string"/>
+<Field label="电话" name="MOBILE" type="string"/>
+<Field label="EMAIL" name="EMAIL" type="string"/>
+<Field label="性别" name="GENDER" type="string"/>
+<Field label="生日" name="BIRTH" type="string"/>
+<Field label="省份" name="PROVINCENAME" type="string"/>
+<Field label="城市" name="CITYNAME" type="string"/>
+<Field label="VIP" name="VIP" type="string"/>
+<Field label="老客" name="CUSTOMERTYPE" type="string"/>
+<Field label="OpenID" name="OpenID" type="string"/>
+<Field label="UnionID" name="UnionID" type="string"/>
+<Field label="是否关注" name="FOLLOWFLAG" type="string"/>
+<Field format="yyyy-MM-dd" name="FOLLOWTIME" type="date"/>
+<Field format="yyyy-MM-dd" label="认证成功时间" name="CERTIFYTIME" type="date"/>
+<Field label="店铺编码" name="STORECODE" type="string"/>
+<Field eofAsDelimiter="true" label="店铺名称" name="STORENAME" type="string"/>
+<Field auto_filling="source_name" name="FILENAME" type="string"/>
+<Field auto_filling="reader_timestamp" name="CREATEDT" type="date"/>
+</Record>
+</Metadata>
+<Metadata id="UniversalDataReader_Error">
+<Record fieldDelimiter="|" name="UniversalDataReader_Error" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="recordNo" trim="true" type="long"/>
+<Field name="fieldNo" trim="true" type="integer"/>
+<Field name="originalData" type="string"/>
+<Field name="errorMessage" type="string"/>
+<Field name="fileURL" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+<GraphParameter name="target_path" value="${DATAIN_DIR}/Succ_Binding_*.csv"/>
+<GraphParameter name="Daytime">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"YYYYMMdd");
+}
+]]></attr>
+</GraphParameter>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node dbConnection="JDBC0" dbTable="IMP_STG_BANDING" fieldMap="$USERID:=USERID;$NAME:=NAME;$MOBILE:=MOBILE;$EMAIL:=EMAIL;$GENDER:=GENDER;$BIRTH:=BIRTH;$PROVINCENAME:=PROVINCENAME;$CITYNAME:=CITYNAME;$VIP:=VIP;$CUSTOMERTYPE:=CUSTOMERTYPE;$OPENID:=OPENID;$UNIONID:=UNIONID;$FOLLOWFLAG:=FOLLOWFLAG;$FOLLOWTIME:=FOLLOWTIME;$CERTIFYTIME:=CERTIFYTIME;$STORECODE:=STORECODE;$STORENAME:=STORENAME;$FILENAME:=FILENAME;$CREATEDT:=CREATEDT;" guiName="DBOutputTable" guiX="562" guiY="45" id="DBOUTPUT_TABLE" type="DB_OUTPUT_TABLE"/>
+<Node guiName="Reformat" guiX="364" guiY="45" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.USERID = $in.0.USERID;
+	$out.0.NAME = $in.0.NAME;
+	$out.0.MOBILE = $in.0.MOBILE;
+	$out.0.EMAIL = $in.0.EMAIL;
+	$out.0.GENDER = $in.0.GENDER;
+	$out.0.BIRTH = $in.0.BIRTH;
+	$out.0.PROVINCENAME = $in.0.PROVINCENAME;
+	$out.0.CITYNAME = $in.0.CITYNAME;
+	$out.0.VIP = $in.0.VIP;
+	$out.0.CUSTOMERTYPE = $in.0.CUSTOMERTYPE;
+	$out.0.OPENID = $in.0.OpenID;
+	$out.0.UNIONID = $in.0.UnionID;
+	$out.0.FOLLOWFLAG = $in.0.FOLLOWFLAG;
+	$out.0.FOLLOWTIME = $in.0.FOLLOWTIME;
+	$out.0.CERTIFYTIME = $in.0.CERTIFYTIME;
+	$out.0.STORECODE = $in.0.STORECODE;
+	$out.0.STORENAME = $in.0.STORENAME;
+	$out.0.FILENAME = substring($in.0.FILENAME,33,39);
+	$out.0.CREATEDT = $in.0.CREATEDT;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node charset="UTF-8" dataPolicy="controlled" fileURL="${target_path}" guiName="UniversalDataReader" guiX="117" guiY="45" id="UNIVERSAL_DATA_READER" skipFirstLine="true" skipRows="0" type="DATA_READER"/>
+<Node append="true" charset="UTF-8" fileURL="${DATATMP_DIR}/IMP_Banding_Rject_DataReader2STG.txt" guiName="UniversalDataWriter" guiX="755" guiY="111" id="UNIVERSAL_DATA_WRITER" makeDirs="true" outputFieldNames="true" type="DATA_WRITER"/>
+<Node charset="UTF-8" fileURL="${DATATMP_DIR}/IMP_Banding_Rject_DataReader.txt" guiName="UniversalDataWriter" guiX="325" guiY="175" id="UNIVERSAL_DATA_WRITER1" type="DATA_WRITER"/>
+<Edge debugMode="true" fromNode="DBOUTPUT_TABLE:1" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="UniversalDataReader_Error" outPort="Port 1 (autogenerated)" toNode="UNIVERSAL_DATA_WRITER:0"/>
+<Edge debugMode="true" fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="DBOUTPUT_TABLE:0"/>
+<Edge debugMode="true" fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (output)" toNode="REFORMAT:0"/>
+<Edge debugMode="true" fromNode="UNIVERSAL_DATA_READER:1" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" metadata="UniversalDataReader_Error" outPort="Port 1 (logs)" toNode="UNIVERSAL_DATA_WRITER1:0"/>
+</Phase>
+<Phase number="1">
+<Node guiName="DataIntersection" guiX="729" guiY="333" id="DATA_INTERSECTION" joinKey="$OPENID=$OPENID" type="DATA_INTERSECTION">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.USERID = $in.0.USERID;
+	$out.0.NAME = $in.0.NAME;
+	$out.0.MOBILE = $in.0.MOBILE;
+	$out.0.EMAIL = $in.0.EMAIL;
+	$out.0.GENDER = $in.0.GENDER;
+	$out.0.BIRTH = $in.0.BIRTH;
+	$out.0.PROVINCENAME = $in.0.PROVINCENAME;
+	$out.0.CITYNAME = $in.0.CITYNAME;
+	$out.0.VIP = $in.0.VIP;
+	$out.0.CUSTOMERTYPE = $in.0.CUSTOMERTYPE;
+	$out.0.OPENID = $in.0.OPENID;
+	$out.0.UNIONID = $in.0.UNIONID;
+	$out.0.FOLLOWFLAG = $in.0.FOLLOWFLAG;
+	$out.0.FOLLOWTIME = $in.0.FOLLOWTIME;
+	$out.0.CERTIFYTIME = $in.0.CERTIFYTIME;
+	$out.0.STORECODE = $in.0.STORECODE;
+	$out.0.STORENAME = $in.0.STORENAME;
+	$out.0.FILENAME = $in.0.FILENAME;
+	$out.0.CREATEDT = $in.0.CREATEDT;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node charset="UTF-8" dataPolicy="strict" dbConnection="JDBC0" guiName="DBInputTable" guiX="117" guiY="318" id="DBINPUT_TABLE1" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT USERID,NAME,MOBILE,EMAIL,GENDER,BIRTH,PROVINCENAME,CITYNAME,
+VIP,CUSTOMERTYPE,OPENID,UNIONID,FOLLOWFLAG,
+FOLLOWTIME,CERTIFYTIME,STORECODE,STORENAME,FILENAME,CREATEDT
+FROM [ETL_TR_JASMINEQIAN].[DBO].[IMP_STG_BANDING]
+WHERE [OPENID] IS NOT NULL
+AND ISDATE(BIRTH) =1]]></attr>
+</Node>
+<Node charset="UTF-8" dataPolicy="strict" dbConnection="JDBC0" guiName="DBInputTable" guiX="302" guiY="435" id="DBINPUT_TABLE2" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT USERID,NAME,MOBILE,EMAIL,GENDER,BIRTH,PROVINCENAME,CITYNAME,
+VIP,CUSTOMERTYPE,OPENID,UNIONID,FOLLOWFLAG,
+FOLLOWTIME,CERTIFYTIME,STORECODE,STORENAME,FILENAME,CREATEDT
+FROM [ETL_TR_JASMINEQIAN].[DBO].[IMP_DQ_BANDING]
+]]></attr>
+</Node>
+<Node dbConnection="JDBC0" dbTable="IMP_DQ_BANDING" fieldMap="$USERID:=USERID;$NAME:=NAME;$MOBILE:=MOBILE;$EMAIL:=EMAIL;$GENDER:=GENDER;$BIRTH:=BIRTH;$PROVINCENAME:=PROVINCENAME;$CITYNAME:=CITYNAME;$VIP:=VIP;$CUSTOMERTYPE:=CUSTOMERTYPE;$OPENID:=OPENID;$UNIONID:=UNIONID;$FOLLOWFLAG:=FOLLOWFLAG;$FOLLOWTIME:=FOLLOWTIME;$CERTIFYTIME:=CERTIFYTIME;$STORECODE:=STORECODE;$STORENAME:=STORENAME;$FILENAME:=FILENAME;$CREATEDT:=CREATEDT;" guiName="DBOutputTable" guiX="966" guiY="333" id="DBOUTPUT_TABLE3" type="DB_OUTPUT_TABLE"/>
+<Node guiName="FastSort" guiX="498" guiY="318" id="FAST_SORT" sortKey="OPENID(a)" type="FAST_SORT"/>
+<Node guiName="FastSort" guiX="498" guiY="435" id="FAST_SORT1" sortKey="OPENID(a)" type="FAST_SORT"/>
+<Node guiName="Reformat" guiX="302" guiY="318" id="REFORMAT2" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.USERID = $in.0.USERID;
+	$out.0.NAME = $in.0.NAME;
+	$out.0.MOBILE = $in.0.MOBILE;
+	$out.0.EMAIL = $in.0.EMAIL;
+	$out.0.GENDER = $in.0.GENDER;
+	$out.0.BIRTH = $in.0.BIRTH;
+	$out.0.PROVINCENAME = $in.0.PROVINCENAME;
+	$out.0.CITYNAME = $in.0.CITYNAME;
+	$out.0.VIP = $in.0.VIP;
+	$out.0.CUSTOMERTYPE = $in.0.CUSTOMERTYPE;
+	$out.0.OPENID = $in.0.OPENID;
+	$out.0.UNIONID = $in.0.UNIONID;
+	$out.0.FOLLOWFLAG = $in.0.FOLLOWFLAG;
+	$out.0.FOLLOWTIME = $in.0.FOLLOWTIME;
+	$out.0.CERTIFYTIME = $in.0.CERTIFYTIME;
+	$out.0.STORECODE = $in.0.STORECODE;
+	$out.0.STORENAME = $in.0.STORENAME;
+	$out.0.FILENAME = $in.0.FILENAME;
+	$out.0.CREATEDT = $in.0.CREATEDT;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Trash" guiX="966" guiY="544" id="TRASH" type="TRASH"/>
+<Node guiName="Trash" guiX="966" guiY="435" id="TRASH1" type="TRASH"/>
+<Edge debugMode="true" fromNode="DATA_INTERSECTION:0" guiBendpoints="" guiRouter="Manhattan" id="Edge11" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (only in A)" toNode="DBOUTPUT_TABLE3:0"/>
+<Edge debugMode="true" fromNode="DATA_INTERSECTION:1" guiBendpoints="" guiRouter="Manhattan" id="Edge28" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 1 (in A &amp; B)" toNode="TRASH1:0"/>
+<Edge debugMode="true" fromNode="DATA_INTERSECTION:2" guiBendpoints="" guiRouter="Manhattan" id="Edge13" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 2 (only in B)" toNode="TRASH:0"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="REFORMAT2:0"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge12" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="FAST_SORT1:0"/>
+<Edge debugMode="true" fromNode="FAST_SORT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge10" inPort="Port 0 (set A)" metadata="Metadata3" outPort="Port 0 (out)" toNode="DATA_INTERSECTION:0"/>
+<Edge debugMode="true" fromNode="FAST_SORT1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 1 (set B)" metadata="Metadata3" outPort="Port 0 (out)" toNode="DATA_INTERSECTION:1"/>
+<Edge debugMode="true" fromNode="REFORMAT2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="FAST_SORT:0"/>
+</Phase>
+</Graph>

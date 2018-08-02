@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Tue Mar 13 08:58:08 CST 2018" guiVersion="4.9.0.M1" id="1521010722256" licenseCode="CLP1DACXIO36442151BY" name="02_TestCheckFollowOKfile" nature="jobflow" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="," label="Chanel_Follow_Status_201802261200.csv" name="Chanel_Follow_Status_201802261200_csv" previewAttachment="${DATAIN_DIR}/Chanel_Follow_Status_201802261200.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field name="VISIT" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6">
+<Record fieldDelimiter="," label="Chanel_Follow_Status_201802261200.ok" name="Chanel_Follow_Status_201802261200_ok" previewAttachment="${DATAIN_DIR}/Chanel_Follow_Status_201802261200.ok" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="Rgroup" type="string"/>
+<Field eofAsDelimiter="true" name="num" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata7">
+<Record fieldDelimiter="," label="Chanel_Follow_Status_201803150000.csv" name="Chanel_Follow_Status_201803150000_csv" previewAttachment="${DATAIN_DIR}/Chanel_Follow_Status_201803150000.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field name="VISIT" type="integer"/>
+<Field name="SOURCE" type="string"/>
+<Field name="UNIONID" type="string"/>
+<Field name="TIME" type="string"/>
+<Field name="MEMO" type="string"/>
+<Field name="MEMO1" type="string"/>
+<Field name="MEMO2" type="string"/>
+<Field name="MEMO3" type="string"/>
+<Field name="MEMO4" type="string"/>
+<Field name="MEMO5" type="string"/>
+<Field name="MEMO6" type="string"/>
+<Field name="MEMO7" type="string"/>
+<Field name="MEMO8" type="string"/>
+<Field name="MEMO9" type="string"/>
+<Field eofAsDelimiter="true" name="MEMO10" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4">
+<Record fieldDelimiter="|" name="FILEDBFULLJOIN" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="FILEOPENID" type="string"/>
+<Field name="FILEFLAG" type="integer"/>
+<Field name="DBOPENID" type="string"/>
+<Field name="DBFLAG" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata8">
+<Record fieldDelimiter="|" name="Final_control_result" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="ok" type="boolean"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="|" name="FLAGNUM" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="FLAG" type="integer"/>
+<Field name="NUM" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5">
+<Record fieldDelimiter="|" name="FLAGNUMJOIN" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="FILEROWNUM" type="integer"/>
+<Field name="FILEFLAG" type="integer"/>
+<Field name="DBROWNUM" type="integer"/>
+<Field name="DBFLAG" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter="|" name="OPENIDFLAG" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field name="FLAG" type="integer"/>
+<Field name="NUM" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="|" name="RgroupNUM" previewAttachmentCharset="UTF-8" recordDelimiter="\r\n" type="delimited">
+<Field name="Rgroup" type="string"/>
+<Field name="NUM" type="integer"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary>
+<Entry input="true" name="checkFollowControl" output="true" type="boolean"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node aggregateKey="FLAG" guiName="Aggregate" guiX="424" guiY="43" id="AGGREGATE" mapping="$FLAG:=$FLAG;$NUM:=count();" type="AGGREGATE"/>
+<Node guiName="Aggregate" guiX="788" guiY="386" id="AGGREGATE1" mapping="$FILEROWNUM:=count();" type="AGGREGATE"/>
+<Node equalNULL="true" guiName="Aggregate" guiX="611" guiY="263" id="AGGREGATE2" mapping="$FLAG:=2;$NUM:=count();" type="AGGREGATE"/>
+<Node dbConnection="JDBC0" guiName="DBInputTable" guiX="5" guiY="263" id="DBINPUT_TABLE" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[  SELECT OPENID,VISIT_FLAG FROM IMP_DQ_FOLLOW WHERE VISIT_FLAG = 1]]></attr>
+</Node>
+<Node guiName="ExtHashJoin" guiX="236" guiY="263" id="EXT_HASH_JOIN" joinKey="$OPENID=$OPENID" joinType="fullOuter" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.FILEOPENID = $in.0.OPENID;
+	$out.0.FILEFLAG = $in.0.FLAG;
+	$out.0.DBOPENID = $in.1.OPENID;
+	$out.0.DBFLAG = $in.1.FLAG;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="ExtHashJoin" guiX="445" guiY="386" id="EXT_HASH_JOIN1" joinKey="$FLAG=$FLAG;$NUM=$NUM" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.FILEFLAG = $in.0.FLAG;
+	$out.0.FILEROWNUM = $in.0.NUM;
+	$out.0.DBFLAG = $in.1.FLAG;
+	$out.0.DBROWNUM = $in.1.NUM;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Fail" guiX="1143" guiY="485" id="FAIL" type="FAIL"/>
+<Node guiName="FastSort" guiX="435" guiY="161" id="FAST_SORT" sortKey="FLAG(a)" type="FAST_SORT"/>
+<Node guiName="FastSort" guiX="626" guiY="387" id="FAST_SORT1" sortKey="FILEFLAG(a)" type="FAST_SORT"/>
+<Node guiName="Filter" guiX="845" guiY="43" id="FILTER" type="EXT_FILTER">
+<attr name="filterExpression"><![CDATA[//#CTL2
+$in.0.FLAG==1]]></attr>
+</Node>
+<Node guiName="Filter" guiX="788" guiY="141" id="FILTER1" type="EXT_FILTER">
+<attr name="filterExpression"><![CDATA[//#CTL2
+$in.0.FLAG ==0]]></attr>
+</Node>
+<Node guiName="Filter" guiX="424" guiY="263" id="FILTER2" type="EXT_FILTER">
+<attr name="filterExpression"><![CDATA[//#CTL2
+$in.0.FILEFLAG == 1 OR $in.0.FILEFLAG == null]]></attr>
+</Node>
+<Node guiName="Filter" guiX="956" guiY="386" id="FILTER3" type="EXT_FILTER">
+<attr name="filterExpression"><![CDATA[//#CTL2
+$in.0.FILEROWNUM == 3]]></attr>
+</Node>
+<Node fileURL="D:/00H_CloverETL_Workspace/TR_JASMINEQIAN/data-in/Chanel_Follow_Status_*.csv" guiName="FlatFileReader" guiX="15" guiY="43" id="FLAT_FILE_READER" type="FLAT_FILE_READER" verbose="true"/>
+<Node fileURL="D:/00H_CloverETL_Workspace/TR_JASMINEQIAN/data-in/Chanel_Follow_Status_*.ok" guiName="FlatFileReader" guiX="5" guiY="393" id="FLAT_FILE_READER1" type="FLAT_FILE_READER"/>
+<Node guiName="Reformat" guiX="236" guiY="43" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.OPENID = $in.0.OPENID;
+	$out.0.FLAG = $in.0.VISIT;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Reformat" guiX="221" guiY="393" id="REFORMAT1" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	if ($in.0.Rgroup == 'Batch_Follow')
+	{$out.0.FLAG = 1;}
+	else if ($in.0.Rgroup == 'Batch_Unfollow')
+	{$out.0.FLAG = 0;}
+	else if ($in.0.Rgroup == 'Total_Follow')
+	{$out.0.FLAG = 2;}
+	$out.0.NUM = $in.0.num;
+
+	return ALL;
+}
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="SetJobOutput" guiX="1143" guiY="361" id="SET_JOB_OUTPUT" type="SET_JOB_OUTPUT">
+<attr name="mapping"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.checkFollowControl = true;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="SimpleCopy" guiX="236" guiY="161" id="SIMPLE_COPY" type="SIMPLE_COPY"/>
+<Node guiName="SimpleCopy" guiX="611" guiY="43" id="SIMPLE_COPY1" type="SIMPLE_COPY"/>
+<Node guiName="SimpleGather" guiX="1094" guiY="227" id="SIMPLE_GATHER" type="SIMPLE_GATHER"/>
+<Edge debugMode="true" fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (out)" toNode="SIMPLE_COPY1:0"/>
+<Edge debugMode="true" fromNode="AGGREGATE1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge13" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (out)" toNode="FILTER3:0"/>
+<Edge debugMode="true" fromNode="AGGREGATE2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge19" inPort="Port 2 (in)" metadata="Metadata1" outPort="Port 0 (out)" toNode="SIMPLE_GATHER:2"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 1 (slave)" metadata="Metadata3" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:1"/>
+<Edge debugMode="true" fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="Metadata4" outPort="Port 0 (out)" toNode="FILTER2:0"/>
+<Edge debugMode="true" fromNode="EXT_HASH_JOIN1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge12" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (out)" toNode="FAST_SORT1:0"/>
+<Edge debugMode="true" fromNode="FAST_SORT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge24" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="AGGREGATE:0"/>
+<Edge debugMode="true" fromNode="FAST_SORT1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge29" inPort="Port 0 (in)" outPort="Port 0 (out)" toNode="AGGREGATE1:0"/>
+<Edge debugMode="true" fromNode="FILTER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge16" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (accepted)" toNode="SIMPLE_GATHER:0"/>
+<Edge debugMode="true" fromNode="FILTER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge17" inPort="Port 1 (in)" metadata="Metadata1" outPort="Port 0 (accepted)" toNode="SIMPLE_GATHER:1"/>
+<Edge debugMode="true" fromNode="FILTER2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge9" inPort="Port 0 (in)" metadata="Metadata4" outPort="Port 0 (accepted)" toNode="AGGREGATE2:0"/>
+<Edge fromNode="FILTER3:0" guiBendpoints="" guiRouter="Manhattan" id="Edge28" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (accepted)" toNode="SET_JOB_OUTPUT:0"/>
+<Edge debugMode="true" fromNode="FILTER3:1" guiBendpoints="" guiRouter="Manhattan" id="Edge15" inPort="Port 0 (in)" outPort="Port 1 (rejected)" toNode="FAIL:0"/>
+<Edge debugMode="true" fromNode="FLAT_FILE_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata7" outPort="Port 0 (output)" toNode="REFORMAT:0"/>
+<Edge debugMode="true" fromNode="FLAT_FILE_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge10" inPort="Port 0 (in)" metadata="Metadata6" outPort="Port 0 (output)" toNode="REFORMAT1:0"/>
+<Edge debugMode="true" fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="SIMPLE_COPY:0"/>
+<Edge debugMode="true" fromNode="REFORMAT1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge21" inPort="Port 1 (slave)" metadata="Metadata1" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN1:1"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY:0" guiBendpoints="" guiRouter="Manhattan" id="Edge22" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="FAST_SORT:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY:1" guiBendpoints="" guiRouter="Manhattan" id="Edge23" inPort="Port 0 (driver)" metadata="Metadata3" outPort="Port 1 (out)" toNode="EXT_HASH_JOIN:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (out)" toNode="FILTER:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY1:1" guiBendpoints="" guiRouter="Manhattan" id="Edge18" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 1 (out)" toNode="FILTER1:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_GATHER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge20" inPort="Port 0 (driver)" metadata="Metadata1" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN1:0"/>
+</Phase>
+</Graph>

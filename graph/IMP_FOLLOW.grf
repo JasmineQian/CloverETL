@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jasqia" created="Thu Mar 01 16:23:06 CST 2018" guiVersion="4.5.1" id="1520239732101" licenseCode="CLP1DACXIO36442151BY" name="IMP_FOLLOW" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="," label="Chanel_Follow_Status_201802271200.csv" name="Chanel_Follow_Status_201802271200_csv" previewAttachment="${DATAIN_DIR}/Chanel_Follow_Status_201802271200.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field auto_filling="source_name" name="SFILENAME" type="string"/>
+<Field auto_filling="reader_timestamp" name="CREATIONDT" type="date"/>
+<Field name="VISIT" type="integer"/>
+<Field name="SOURCE" type="string"/>
+<Field name="UNIONID" type="string"/>
+<Field name="TIME" type="string"/>
+<Field name="MEMO" type="string"/>
+<Field name="MEMO1" type="string"/>
+<Field name="MEMO2" type="string"/>
+<Field name="MEMO3" type="string"/>
+<Field name="MEMO4" type="string"/>
+<Field name="MEMO5" type="string"/>
+<Field name="MEMO6" type="string"/>
+<Field name="MEMO7" type="string"/>
+<Field name="MEMO8" type="string"/>
+<Field name="MEMO9" type="string"/>
+<Field eofAsDelimiter="true" name="MEMO10" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4">
+<Record fieldDelimiter="," label="Chanel_Follow_Status_201803150000.csv" name="Chanel_Follow_Status_201803150000_csv" previewAttachment="${DATAIN_DIR}/Chanel_Follow_Status_201803150000.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="OPENID" type="string"/>
+<Field name="VISIT" type="integer"/>
+<Field name="SOURCE" type="string"/>
+<Field name="UNIONID" type="string"/>
+<Field name="TIME" type="string"/>
+<Field name="MEMO" type="string"/>
+<Field name="MEMO1" type="string"/>
+<Field name="MEMO2" type="string"/>
+<Field name="MEMO3" type="string"/>
+<Field name="MEMO4" type="string"/>
+<Field name="MEMO5" type="string"/>
+<Field name="MEMO6" type="string"/>
+<Field name="MEMO7" type="string"/>
+<Field name="MEMO8" type="string"/>
+<Field name="MEMO9" type="string"/>
+<Field eofAsDelimiter="true" name="MEMO10" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter=";" name="IMP_DQ_FOLLOW" recordDelimiter="\n" type="delimited">
+<Field name="OPENID" size="200" type="string"/>
+<Field name="VISIT_FLAG" size="10" type="integer"/>
+<Field name="SFILENAME" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CREATEDT" size="23" type="date"/>
+<Field name="SOURCE" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="TIME" size="23" type="date"/>
+<Field name="MEMO" size="200" type="string"/>
+<Field name="MEMO1" size="200" type="string"/>
+<Field name="MEMO2" size="200" type="string"/>
+<Field name="MEMO3" size="200" type="string"/>
+<Field name="MEMO4" size="200" type="string"/>
+<Field name="MEMO5" size="200" type="string"/>
+<Field name="MEMO6" size="200" type="string"/>
+<Field name="MEMO7" size="200" type="string"/>
+<Field name="MEMO8" size="200" type="string"/>
+<Field name="MEMO9" size="200" type="string"/>
+<Field name="MEMO10" size="200" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter=";" name="IMP_STG_FOLLOW" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="OPENID" size="200" type="string"/>
+<Field name="VISIT_FLAG" size="10" trim="true" type="integer"/>
+<Field name="SFILENAME" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="CREATEDT" size="23" trim="true" type="date"/>
+<Field name="SOURCE" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="TIME" size="23" trim="true" type="string"/>
+<Field name="MEMO" size="200" type="string"/>
+<Field name="MEMO1" size="200" type="string"/>
+<Field name="MEMO2" size="200" type="string"/>
+<Field name="MEMO3" size="200" type="string"/>
+<Field name="MEMO4" size="200" type="string"/>
+<Field name="MEMO5" size="200" type="string"/>
+<Field name="MEMO6" size="200" type="string"/>
+<Field name="MEMO7" size="200" type="string"/>
+<Field name="MEMO8" size="200" type="string"/>
+<Field name="MEMO9" size="200" type="string"/>
+<Field name="MEMO10" size="200" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter=";" name="STG_FOLLOW" recordDelimiter="\n" type="delimited">
+<Field name="STG_ID" size="10" type="integer"/>
+<Field name="STG_OPENID" size="200" type="string"/>
+<Field name="STG_VISIT_FLAG" size="10" type="integer"/>
+<Field name="STG_FILENAME" size="200" type="string"/>
+<Field name="STG_RECORD_ID" size="10" type="integer"/>
+<Field name="STG_BATCH_TS" size="100" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="STG_CREATEDT" size="23" type="date"/>
+<Field name="STG_SOURCE" size="200" type="string"/>
+<Field name="UNIONID" size="200" type="string"/>
+<Field format="yyyy-MM-dd HH:mm:ss" name="TIME" size="23" type="date"/>
+<Field name="MEMO" size="200" type="string"/>
+<Field name="MEMO1" size="200" type="string"/>
+<Field name="MEMO2" size="200" type="string"/>
+<Field name="MEMO3" size="200" type="string"/>
+<Field name="MEMO4" size="200" type="string"/>
+<Field name="MEMO5" size="200" type="string"/>
+<Field name="MEMO6" size="200" type="string"/>
+<Field name="MEMO7" size="200" type="string"/>
+<Field name="MEMO8" size="200" type="string"/>
+<Field name="MEMO9" size="200" type="string"/>
+<Field name="MEMO10" size="200" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="UniversalDataReader_Error">
+<Record fieldDelimiter="|" name="UniversalDataReader_Error" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="recordNo" trim="true" type="long"/>
+<Field name="fieldNo" trim="true" type="integer"/>
+<Field name="originalData" type="string"/>
+<Field name="errorMessage" type="string"/>
+<Field name="fileURL" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="UniversalDataReader_Error1">
+<Record fieldDelimiter="|" name="UniversalDataReader_Error_1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="recordNo" trim="true" type="long"/>
+<Field name="fieldNo" trim="true" type="integer"/>
+<Field name="originalData" type="string"/>
+<Field name="errorMessage" type="string"/>
+<Field name="fileURL" type="string"/>
+</Record>
+</Metadata>
+<Connection dbConfig="${CONN_DIR}/DBconnection.cfg" id="JDBC0" type="JDBC"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+<GraphParameter name="target_path" value="${DATAIN_DIR}/Chanel_Follow_Status_*.csv"/>
+<GraphParameter name="Daytime">
+<attr name="dynamicValue"><![CDATA[//#CTL2
+
+function string getValue() {
+	return date2str(today(),"YYYYMMdd");
+}
+]]></attr>
+</GraphParameter>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node dbConnection="JDBC0" dbTable="IMP_STG_FOLLOW" fieldMap="$OPENID:=OPENID;$VISIT_FLAG:=VISIT_FLAG;$SFILENAME:=SFILENAME;$CREATEDT:=CREATEDT;$SOURCE:=SOURCE;$UNIONID:=UNIONID;$TIME:=TIME;$MEMO:=MEMO;$MEMO1:=MEMO1;$MEMO2:=MEMO2;$MEMO3:=MEMO3;$MEMO4:=MEMO4;$MEMO5:=MEMO5;$MEMO6:=MEMO6;$MEMO7:=MEMO7;$MEMO8:=MEMO8;$MEMO9:=MEMO9;$MEMO10:=MEMO10;" guiName="DBOutputTable" guiX="625" guiY="76" id="DBOUTPUT_TABLE" type="DB_OUTPUT_TABLE"/>
+<Node guiName="Reformat" guiX="381" guiY="76" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.OPENID = $in.0.OPENID;
+	$out.0.SFILENAME = substring($in.0.SFILENAME,33,70);
+	$out.0.SOURCE = $in.0.SOURCE;
+	$out.0.UNIONID = $in.0.UNIONID;
+	$out.0.TIME = $in.0.TIME;
+	$out.0.MEMO = $in.0.MEMO;
+	$out.0.MEMO1 = $in.0.MEMO1;
+	$out.0.MEMO2 = $in.0.MEMO2;
+	$out.0.MEMO3 = $in.0.MEMO3;
+	$out.0.MEMO4 = $in.0.MEMO4;
+	$out.0.MEMO5 = $in.0.MEMO5;
+	$out.0.MEMO6 = $in.0.MEMO6;
+	$out.0.MEMO7 = $in.0.MEMO7;
+	$out.0.MEMO8 = $in.0.MEMO8;
+	$out.0.MEMO9 = $in.0.MEMO9;
+	$out.0.MEMO10 = $in.0.MEMO10;
+	$out.0.CREATEDT = $in.0.CREATIONDT;
+	$out.0.VISIT_FLAG = $in.0.VISIT;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node append="true" charset="UTF-8" fileURL="${DATATMP_DIR}/IMP_Follow_Rject_FILE2STG.txt" guiName="SReject" guiX="794" guiY="163" id="SREJECT" makeDirs="true" outputFieldNames="true" type="DATA_WRITER"/>
+<Node append="true" charset="UTF-8" fileURL="${DATATMP_DIR}/IMP_Follow_Rject_UniversalDataWriter.txt" guiName="SReject" guiX="296" guiY="169" id="SREJECT1" makeDirs="true" outputFieldNames="true" type="DATA_WRITER"/>
+<Node charset="UTF-8" dataPolicy="controlled" fileURL="${target_path}" guiName="UniversalDataReader" guiX="90" guiY="76" id="UNIVERSAL_DATA_READER" skipFirstLine="true" skipRows="0" type="DATA_READER" verbose="false"/>
+<Edge debugMode="true" fromNode="DBOUTPUT_TABLE:1" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="UniversalDataReader_Error" outPort="Port 1 (autogenerated)" toNode="SREJECT:0"/>
+<Edge debugMode="true" fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="DBOUTPUT_TABLE:0"/>
+<Edge debugMode="true" fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (output)" toNode="REFORMAT:0"/>
+<Edge debugMode="true" fromNode="UNIVERSAL_DATA_READER:1" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="UniversalDataReader_Error1" outPort="Port 1 (logs)" toNode="SREJECT1:0"/>
+</Phase>
+<Phase number="1">
+<Node charset="UTF-8" dbConnection="JDBC0" guiName="DBInputTable" guiX="100" guiY="349" id="DBINPUT_TABLE" type="DB_INPUT_TABLE">
+<attr name="sqlQuery"><![CDATA[SELECT OPENID,VISIT_FLAG,SFILENAME,CREATEDT,SOURCE,
+UNIONID,TIME,MEMO,MEMO1,MEMO2,MEMO3,MEMO4,MEMO5,MEMO6,MEMO7,MEMO8,MEMO9,MEMO10 
+FROM [IMP_STG_FOLLOW]]]></attr>
+</Node>
+<Node dbConnection="JDBC0" dbTable="IMP_DQ_FOLLOW" fieldMap="$OPENID:=OPENID;$VISIT_FLAG:=VISIT_FLAG;$SFILENAME:=SFILENAME;$CREATEDT:=CREATEDT;$SOURCE:=SOURCE;$UNIONID:=UNIONID;$TIME:=TIME;$MEMO:=MEMO;$MEMO1:=MEMO1;$MEMO2:=MEMO2;$MEMO3:=MEMO3;$MEMO4:=MEMO4;$MEMO5:=MEMO5;$MEMO6:=MEMO6;$MEMO7:=MEMO7;$MEMO8:=MEMO8;$MEMO9:=MEMO9;$MEMO10:=MEMO10;" guiName="DBOutputTable" guiX="508" guiY="349" id="DBOUTPUT_TABLE1" type="DB_OUTPUT_TABLE"/>
+<Node guiName="Reformat" guiX="307" guiY="349" id="REFORMAT1" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.OPENID = $in.0.OPENID;
+	$out.0.VISIT_FLAG = $in.0.VISIT_FLAG;
+	$out.0.SFILENAME = $in.0.SFILENAME;
+	$out.0.CREATEDT = $in.0.CREATEDT;
+	$out.0.SOURCE = $in.0.SOURCE;
+	$out.0.UNIONID = $in.0.UNIONID;
+	$out.0.TIME = $in.0.TIME;
+	$out.0.MEMO = $in.0.MEMO;
+	$out.0.MEMO1 = $in.0.MEMO1;
+	$out.0.MEMO2 = $in.0.MEMO2;
+	$out.0.MEMO3 = $in.0.MEMO3;
+	$out.0.MEMO4 = $in.0.MEMO4;
+	$out.0.MEMO5 = $in.0.MEMO5;
+	$out.0.MEMO6 = $in.0.MEMO6;
+	$out.0.MEMO7 = $in.0.MEMO7;
+	$out.0.MEMO8 = $in.0.MEMO8;
+	$out.0.MEMO9 = $in.0.MEMO9;
+	$out.0.MEMO10 = $in.0.MEMO10;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node append="true" charset="UTF-8" fileURL="${DATATMP_DIR}/IMP_Follow_Rject_STG2DQ.txt" guiName="SReject" guiX="709" guiY="415" id="SREJECT2" makeDirs="true" outputFieldNames="true" type="DATA_WRITER"/>
+<Edge debugMode="true" fromNode="DBINPUT_TABLE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (out)" toNode="REFORMAT1:0"/>
+<Edge debugMode="true" fromNode="DBOUTPUT_TABLE1:1" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="UniversalDataReader_Error1" outPort="Port 1 (autogenerated)" toNode="SREJECT2:0"/>
+<Edge debugMode="true" fromNode="REFORMAT1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (out)" toNode="DBOUTPUT_TABLE1:0"/>
+</Phase>
+</Graph>
